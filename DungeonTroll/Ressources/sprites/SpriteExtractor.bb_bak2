@@ -1,0 +1,399 @@
+; NES --> 256x224
+; .pp coleco --> 240x160
+
+imageSource$ = "./gabari_guerrier.bmp"
+fileDest$ = imageSource$ + ".txt"
+pos = 224
+
+; VERSION 3.0 avec création du NAME
+
+Function returnBinary(position)
+	x=position
+	v=0
+	If position = 0 Then
+		v = v + 128
+	End If
+					If x = 1 Then
+						v = v + 64
+					End If
+					If x = 2 Then
+						v = v + 32
+					End If
+					If x = 3 Then
+						v = v + 16
+					End If
+					If x = 4 Then
+						v = v + 8
+					End If
+					If x = 5 Then
+						v = v + 4
+					End If
+					If x = 6 Then
+						v = v + 2
+					End If
+					If x = 7 Then
+						v = v + 1
+					End If	
+	Return v;
+End Function
+;----------------------------------------
+;-- Convertit un octer en chaine HEXA  --
+;----------------------------------------
+Function Convert2Hexa$(nombre)
+
+resultat$ = ""
+bas$ = ""
+haut$ = ""
+
+bas = nombre And 15
+haut = nombre And 240
+
+
+If bas=0 Then
+ ba$="0"
+End If
+If bas=1 Then
+ bas$="1"
+End If
+If bas=2 Then
+ bas$="2"
+End If
+
+If bas=3 Then
+ bas$="3"
+End If
+
+If bas=4 Then
+ bas$="4"
+End If
+
+If bas=5 Then
+ bas$="5"
+End If
+
+If bas=6 Then
+ bas$="6"
+End If
+
+If bas=7 Then
+ bas$="7"
+End If
+
+If bas=8 Then
+ bas$="8"
+End If
+
+If bas=9 Then
+ bas$="9"
+End If
+
+If bas=10 Then
+ bas$="A"
+End If
+
+If bas=11 Then
+ bas$="B"
+End If
+
+If bas=12 Then
+ bas$="C"
+End If
+
+If bas=13 Then
+ bas$="D"
+End If
+
+If bas=14 Then
+ bas$="E"
+End If
+
+If bas=15 Then
+ bas$="F"
+End If
+
+
+If haut=0 Then
+ haut$="0"
+End If
+If haut=16 Then
+ haut$="1"
+End If
+If haut=32 Then
+ haut$="2"
+End If
+
+If haut=48 Then
+ haut$="3"
+End If
+
+If haut=64 Then
+ haut$="4"
+End If
+
+If haut=80 Then
+ haut$="5"
+End If
+
+If haut=96 Then
+ haut$="6"
+End If
+
+If haut=112 Then
+ haut$="7"
+End If
+
+If haut=128 Then
+ haut$="8"
+End If
+
+If haut=144 Then
+ haut$="9"
+End If
+
+If haut=160 Then
+ haut$="A"
+End If
+
+If haut=176 Then
+ haut$="B"
+End If
+
+If haut=192 Then
+ haut$="C"
+End If
+
+If haut=208 Then
+ haut$="D"
+End If
+
+If haut=224 Then
+ haut$="E"
+End If
+
+If haut=240 Then
+ haut$="F"
+End If
+
+res$ = haut$ + bas$ 
+Return res$
+End Function
+
+
+;-------------------------------------------------
+;------------------ MAIN -------------------------
+;-------------------------------------------------
+Graphics 640,480,16
+
+; Load and draw an image on to the screen - can be anything
+pic=LoadImage(imageSource$)
+DrawImage pic,0,0 
+
+; Initialise an array big enough to fit all the color information of the screen
+Dim pixBase(16,16)
+Dim pix(4,16,16)
+
+Dim pix1Car(4,8) ; 4 caractères de 8 lignes
+Dim pix2Car(4,8) ; 4 caractères de 8 lignes
+Dim pix3Car(4,8) ; 4 caractères de 8 lignes
+Dim pix4Car(4,8) ; 4 caractères de 8 lignes
+
+base_y = 16;
+boucle = 0;
+fileout = WriteFile(fileDest$)
+For boucle = 0 To 6
+base_y = boucle * 16
+
+
+For i=0 To 3
+For x=0 To 15
+	For y=0 To 15
+			pixBase(x,y) = ReadPixel(x,y+base_y)
+			pix(i,x,y) = 0
+	Next
+Next
+Next
+
+couleurTransparente = pixBase(0,0)
+
+couleurATraiter = -1
+
+; Traitement de la premiere couleur
+; Récupération de la premièreCouleur de référence
+For y=0 To 15
+	For x=0 To 15
+		If pixBase(x,y) <> couleurTransparente And couleurATraiter=-1Then
+			couleurATraiter = pixBase(x,y)
+		End If
+	Next
+Next
+
+For y=0 To 15
+	For x=0 To 15
+		If pixBase(x,y) = couleurATraiter Then
+			pix(0,x,y) = couleurATraiter
+			pixBase(x,y) = couleurTransparente	
+		End If
+	Next
+Next
+
+;For x=0 To 15
+;	For y=0 To 15
+;			WritePixel(x,y+32+base_y,pixBase(x,y))
+;	Next
+;Next
+
+; Traitement de la deuxime couleur
+; Récupération de la Couleur de référence
+couleurATraiter = -1
+For y=0 To 15
+	For x=0 To 15
+		If pixBase(x,y) <> couleurTransparente And couleurATraiter=-1Then
+			couleurATraiter = pixBase(x,y)
+		End If
+	Next
+Next
+
+For y=0 To 15
+	For x=0 To 15
+		If pixBase(x,y) = couleurATraiter Then
+			pix(1,x,y) = couleurATraiter
+			pixBase(x,y) = couleurTransparente	
+		End If
+	Next
+Next
+
+;For x=0 To 15
+;	For y=0 To 15
+;			WritePixel(x,y+32+16+base_y,pixBase(x,y))
+;	Next
+;Next
+
+; Traitement de la troisieme couleur
+; Récupération de la Couleur de référence
+couleurATraiter = -1
+For y=0 To 15
+	For x=0 To 15
+		If pixBase(x,y) <> couleurTransparente And couleurATraiter=-1Then
+			couleurATraiter = pixBase(x,y)
+		End If
+	Next
+Next
+
+For y=0 To 15
+	For x=0 To 15
+		If pixBase(x,y) = couleurATraiter Then
+			pix(2,x,y) = couleurATraiter
+			pixBase(x,y) = couleurTransparente	
+		End If
+	Next
+Next
+
+;For x=0 To 15
+;	For y=0 To 15
+;			WritePixel(x,y+32+32+base_y,pixBase(x,y))
+;	Next
+;Next
+
+; Traitement de la quatrime couleur
+; Récupération de la Couleur de référence
+couleurATraiter = -1
+For y=0 To 15
+	For x=0 To 15
+		If pixBase(x,y) <> couleurTransparente And couleurATraiter=-1Then
+			couleurATraiter = pixBase(x,y)
+		End If
+	Next
+Next
+
+For y=0 To 15
+	For x=0 To 15
+		If pixBase(x,y) = couleurATraiter Then
+			pix(3,x,y) = couleurATraiter
+			pixBase(x,y) = couleurTransparente	
+		End If
+	Next
+Next
+
+;For x=0 To 15
+;	For y=0 To 15
+;			WritePixel(x,y+32+32+16+base_y,pixBase(x,y))
+;	Next
+;Next
+
+
+
+; Reecriture à l'écran
+
+For x=0 To 16
+	For y=0 To 16
+			WritePixel(x+16,y+base_y,pix(0,x,y))
+			WritePixel(x+32,y+base_y,pix(1,x,y))
+			WritePixel(x+48,y+base_y,pix(2,x,y))
+			WritePixel(x+48+16,y+base_y,pix(3,x,y))
+	Next
+Next
+
+pat$ = ""
+; Traitement des caractères sprite 1
+; On traite ligne par ligne
+For i=0 To 3
+	pat$ = pat$ + Chr$(13) + Chr$(10) + "        DB      "
+	For y=0 To 7 ; ligne
+		ValeurLigne = 0
+		For x=0 To 7 ; colonne
+					If pix(i,x,y) <> 0 Then
+						ValeurLigne = ValeurLigne + returnBinary(x)
+					End If
+		Next
+		res$ = Convert2Hexa(ValeurLigne)
+		pat$ = pat$ + "$" + res$  
+		pat$ = pat$ + ","
+	Next
+	For y=8 To 15 ; ligne
+		ValeurLigne = 0
+		For x=0 To 7 ; colonne
+					If pix(i,x,y) <> 0 Then
+						ValeurLigne = ValeurLigne + returnBinary(x)
+					End If
+		Next
+		res$ = Convert2Hexa(ValeurLigne)
+		pat$ = pat$ + "$" + res$  
+		If y<>15 Then
+			pat$ = pat$ + ","
+		End If
+	Next
+	pat$=pat$ + Chr$(13) + Chr$(10) + "        DB      "
+	For y=0 To 7 ; ligne
+		ValeurLigne = 0
+		For x=8 To 15 ; colonne
+					If pix(i,x,y) <> 0 Then
+						ValeurLigne = ValeurLigne + returnBinary(x-8)
+					End If
+		Next
+		res$ = Convert2Hexa(ValeurLigne)
+		pat$ = pat$ + "$" + res$  
+		pat$ = pat$ + ","
+	Next
+	For y=8 To 15 ; ligne
+		ValeurLigne = 0
+		For x=8 To 15 ; colonne
+					If pix(i,x,y) <> 0 Then
+						ValeurLigne = ValeurLigne + returnBinary(x-8)
+					End If
+		Next
+		res$ = Convert2Hexa(ValeurLigne)
+		pat$ = pat$ + "$" + res$  
+		If y<>15 Then
+			pat$ = pat$ + ","
+		End If
+	Next	
+Next
+
+
+
+WriteString( fileout, pat$ )
+
+Next  
+WaitKey()
+Cls
+CloseFile( fileout )

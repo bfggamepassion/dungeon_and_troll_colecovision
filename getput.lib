@@ -1,0 +1,1973 @@
+<SDCCLIB>
+
+<INDEX>
+      4717
+<MODULE>
+gp2chg 11
+.__.ABS.
+_change_pattern
+</MODULE>
+
+<MODULE>
+gp2chg0 362
+.__.ABS.
+</MODULE>
+
+<MODULE>
+gp2chgs 681
+.__.ABS.
+_change_spattern
+</MODULE>
+
+<MODULE>
+gp2chgs0 1038
+.__.ABS.
+_change_spattern0
+</MODULE>
+
+<MODULE>
+gp2choi1 1388
+.__.ABS.
+_choice_keypad_1
+</MODULE>
+
+<MODULE>
+gp2choi2 1839
+.__.ABS.
+_choice_keypad_2
+</MODULE>
+
+<MODULE>
+gp2colr 2290
+.__.ABS.
+</MODULE>
+
+<MODULE>
+gp2colr0 2703
+.__.ABS.
+</MODULE>
+
+<MODULE>
+gp2fill 3082
+.__.ABS.
+_fill_color
+</MODULE>
+
+<MODULE>
+gp2mlt0 3384
+.__.ABS.
+_change_multicolor
+</MODULE>
+
+<MODULE>
+gp2mlt00 3738
+.__.ABS.
+_change_multicolor0
+</MODULE>
+
+<MODULE>
+gp2mlt1 4046
+.__.ABS.
+_change_multicolor_pattern
+</MODULE>
+
+<MODULE>
+gp2mlt10 4486
+.__.ABS.
+_change_multicolor_pattern0
+</MODULE>
+
+<MODULE>
+gp2rlej 4922
+.__.ABS.
+_rlej2vram
+</MODULE>
+
+<MODULE>
+gp9cent0 5486
+.__.ABS.
+_center_string0
+</MODULE>
+
+<MODULE>
+gp9centr 5917
+.__.ABS.
+_center_string
+</MODULE>
+
+<MODULE>
+gp9fila0 6353
+.__.ABS.
+_fill_at0
+</MODULE>
+
+<MODULE>
+gp9filat 6672
+.__.ABS.
+_fill_at
+</MODULE>
+
+<MODULE>
+gp9fram0 6995
+.__.ABS.
+_put_frame0
+</MODULE>
+
+<MODULE>
+gp9print 7405
+.__.ABS.
+_print_at
+</MODULE>
+
+<MODULE>
+gp9putat 7765
+.__.ABS.
+_put_at
+</MODULE>
+
+<MODULE>
+gpascii0 8077
+.__.ABS.
+_put_char
+</MODULE>
+
+<MODULE>
+gpascii1 8393
+.__.ABS.
+_get_char
+</MODULE>
+
+<MODULE>
+gpcaloff 8718
+.__.ABS.
+calc_offset
+</MODULE>
+
+<MODULE>
+gpchar 8955
+.__.ABS.
+_upload_default_ascii
+</MODULE>
+
+<MODULE>
+gpchoice 9313
+.__.ABS.
+_choice_keypad
+</MODULE>
+
+<MODULE>
+gpcls 9883
+.__.ABS.
+_cls
+</MODULE>
+
+<MODULE>
+gpcoffm3 10105
+.__.ABS.
+calc_offset3
+</MODULE>
+
+<MODULE>
+gpcolor 10399
+.__.ABS.
+_load_color
+</MODULE>
+
+<MODULE>
+gpcolrle 10739
+.__.ABS.
+_load_colorrle
+</MODULE>
+
+<MODULE>
+gpdiv256 11050
+.__.ABS.
+_intdiv256
+</MODULE>
+
+<MODULE>
+gpdsound 11321
+.__.ABS.
+_play_dsound
+</MODULE>
+
+<MODULE>
+gpfram0 12125
+.__.ABS.
+_put_frame
+</MODULE>
+
+<MODULE>
+gpfram1 12422
+.__.ABS.
+_get_bkgrnd
+</MODULE>
+
+<MODULE>
+gpicture 12721
+.__.ABS.
+_show_picture
+</MODULE>
+
+<MODULE>
+gplascii 13181
+.__.ABS.
+_load_ascii
+</MODULE>
+
+<MODULE>
+gpm3pget 13408
+.__.ABS.
+_pget
+</MODULE>
+
+<MODULE>
+gpm3pset 13866
+.__.ABS.
+_pset
+</MODULE>
+
+<MODULE>
+gpnamrle 14483
+.__.ABS.
+_load_namerle
+</MODULE>
+
+<MODULE>
+gppaper 14792
+.__.ABS.
+_paper
+</MODULE>
+
+<MODULE>
+gppatrle 15011
+.__.ABS.
+_load_patternrle
+</MODULE>
+
+<MODULE>
+gppause 15326
+.__.ABS.
+_pause
+</MODULE>
+
+<MODULE>
+gppaused 15816
+.__.ABS.
+_pause_delay
+</MODULE>
+
+<MODULE>
+gprnd0 16310
+.__.ABS.
+_rnd
+</MODULE>
+
+<MODULE>
+gprnd1 16600
+.__.ABS.
+_rnd_byte
+</MODULE>
+
+<MODULE>
+gprnd2 16906
+.__.ABS.
+rnd1
+</MODULE>
+
+<MODULE>
+gprnd3 17355
+.__.ABS.
+_absdiff_byte
+</MODULE>
+
+<MODULE>
+gprnd4 17632
+.__.ABS.
+_absdiff
+</MODULE>
+
+<MODULE>
+gprnd5 17893
+.__.ABS.
+absdiff_max_min
+</MODULE>
+
+<MODULE>
+gpscore0 18139
+.__.ABS.
+_score_reset
+</MODULE>
+
+<MODULE>
+gpscore1 18377
+.__.ABS.
+_score_add
+</MODULE>
+
+<MODULE>
+gpscore2 18740
+.__.ABS.
+_score_cmp_gt
+</MODULE>
+
+<MODULE>
+gpscore3 19019
+.__.ABS.
+_score_cmp_lt
+</MODULE>
+
+<MODULE>
+gpscore4 19454
+.__.ABS.
+_score_cmp_equ
+</MODULE>
+
+<MODULE>
+gpscore5 19884
+.__.ABS.
+_score_str
+</MODULE>
+
+<MODULE>
+gpscore6 20428
+.__.ABS.
+_score_copy
+</MODULE>
+
+<MODULE>
+gpscreen 20662
+.__.ABS.
+_screen
+_swap_screen
+</MODULE>
+
+<MODULE>
+gpscrmo0 21150
+.__.ABS.
+_screen_mode_2_bitmap
+</MODULE>
+
+<MODULE>
+gpscrmo1 21706
+.__.ABS.
+_screen_mode_2_text
+</MODULE>
+
+<MODULE>
+gpscrmo2 22119
+.__.ABS.
+default_set_mode_2
+default_vdp_reg
+</MODULE>
+
+<MODULE>
+gpscrmo3 22455
+.__.ABS.
+_screen_mode_3_bitmap
+</MODULE>
+
+<MODULE>
+gpscrmo4 23146
+.__.ABS.
+_screen_mode_1_text
+</MODULE>
+
+<MODULE>
+gpsprit0 23670
+.__.ABS.
+_sprites_simple
+</MODULE>
+
+<MODULE>
+gpsprit1 23938
+.__.ABS.
+_sprites_double
+</MODULE>
+
+<MODULE>
+gpsprit2 24206
+.__.ABS.
+_sprites_8x8
+</MODULE>
+
+<MODULE>
+gpsprit3 24471
+.__.ABS.
+_sprites_16x16
+</MODULE>
+
+<MODULE>
+gpsprit4 24738
+.__.ABS.
+set_reg_1
+</MODULE>
+
+<MODULE>
+gpsptrle 24956
+.__.ABS.
+_load_spatternrle
+</MODULE>
+
+<MODULE>
+gpsqrt16 25267
+.__.ABS.
+_sqrt16
+</MODULE>
+
+<MODULE>
+gpstr 25610
+.__.ABS.
+_str
+</MODULE>
+
+<MODULE>
+gpstrlen 25984
+.__.ABS.
+_strlen0
+</MODULE>
+
+<MODULE>
+gpupdats 26223
+.__.ABS.
+_updatesprites
+</MODULE>
+
+<MODULE>
+gputoa0 26566
+.__.ABS.
+_utoa0
+</MODULE>
+
+<MODULE>
+gpwipedn 27020
+.__.ABS.
+_wipe_off_down
+</MODULE>
+
+<MODULE>
+gpwipeup 27471
+.__.ABS.
+_wipe_off_up
+</MODULE>
+
+</INDEX>
+
+<FILES>
+
+<FILE>
+gp2chg
+<REL>
+XL
+H 1 areas 2 global symbols
+M change_pattern
+S .__.ABS. Def0000
+A _CODE size 1F flags 0 addr 0
+S _change_pattern Def0000
+T 00 00 C1 D1 E1 E5 D5 C5 4C 65 6A E5 26 00 69 29
+R 00 00 00 00
+T 0E 00 29 29 44 4D 26 00 6B 29 29 29 54 5D E1 79
+R 00 00 00 00
+T 1C 00 C3 DF 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gp2chg0
+<REL>
+XL
+H 1 areas 2 global symbols
+M change_pattern
+S _change_pattern Ref0000
+S .__.ABS. Def0000
+A _CODE size 1C flags 0 addr 0
+T 00 00 C1 E1 D1 D5 E5 C5 E5 26 00 6A 29 29 29 44
+R 00 00 00 00
+T 0E 00 4D 26 00 6B 29 29 29 54 5D E1 79 C3 DF 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gp2chgs
+<REL>
+XL
+H 1 areas 2 global symbols
+M change_spattern
+S .__.ABS. Def0000
+A _CODE size 20 flags 0 addr 0
+S _change_spattern Def0000
+T 00 00 C1 D1 E1 E5 D5 C5 4C 65 6A E5 26 00 69 29
+R 00 00 00 00
+T 0E 00 29 29 44 4D 26 07 6B 29 29 29 54 5D E1 79
+R 00 00 00 00
+T 1C 00 CD DF 1F C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gp2chgs0
+<REL>
+XL
+H 1 areas 2 global symbols
+M change_spattern
+S .__.ABS. Def0000
+A _CODE size 1D flags 0 addr 0
+S _change_spattern0 Def0000
+T 00 00 C1 E1 D1 D5 E5 C5 E5 26 00 6A 29 29 29 44
+R 00 00 00 00
+T 0E 00 4D 26 07 6B 29 29 29 54 5D E1 79 CD DF 1F
+R 00 00 00 00
+T 1C 00 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gp2choi1
+<REL>
+XL
+H 1 areas 3 global symbols
+M choice_keypad_1
+S _keypad_1 Ref0000
+S .__.ABS. Def0000
+A _CODE size 2C flags 0 addr 0
+S _choice_keypad_1 Def0000
+T 00 00 C1 E1 E5 C5 3A C4 73 F5 F6 20 4F 06 01 CD
+R 00 00 00 00
+T 0E 00 D9 1F CD DC 1F 3A 00 00 4F 7C B7 99 38 F4
+R 00 00 00 00 02 08 00 00
+T 1C 00 79 B7 9D 38 EF 79 26 00 6F F1 4F 06 01 C3
+R 00 00 00 00
+T 2A 00 D9 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gp2choi2
+<REL>
+XL
+H 1 areas 3 global symbols
+M choice_keypad_2
+S _keypad_2 Ref0000
+S .__.ABS. Def0000
+A _CODE size 2C flags 0 addr 0
+S _choice_keypad_2 Def0000
+T 00 00 C1 E1 E5 C5 3A C4 73 F5 F6 20 4F 06 01 CD
+R 00 00 00 00
+T 0E 00 D9 1F CD DC 1F 3A 00 00 4F 7C B7 99 38 F4
+R 00 00 00 00 02 08 00 00
+T 1C 00 79 B7 9D 38 EF 79 26 00 6F F1 4F 06 01 C3
+R 00 00 00 00
+T 2A 00 D9 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gp2colr
+<REL>
+XL
+H 1 areas 2 global symbols
+M change_color
+S change_color Ref0000
+S .__.ABS. Def0000
+A _CODE size 2D flags 0 addr 0
+T 00 00 C1 D1 E1 E5 D5 C5 4C 65 6A E5 41 26 04 6B
+R 00 00 00 00
+T 0E 00 29 29 29 7D D3 BF 7C F6 40 D3 BF E1 0E BE
+R 00 00 00 00
+T 1C 00 56 3E 08 ED 51 3D B7 20 FA 23 05 10 F3 CD
+R 00 00 00 00
+T 2A 00 DC 1F C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gp2colr0
+<REL>
+XL
+H 1 areas 2 global symbols
+M change_color
+S change_color0 Ref0000
+S .__.ABS. Def0000
+A _CODE size 29 flags 0 addr 0
+T 00 00 C1 E1 D1 D5 E5 C5 E5 42 26 04 6B 29 29 29
+R 00 00 00 00
+T 0E 00 7D D3 BF 7C F6 40 D3 BF E1 0E BE 56 3E 08
+R 00 00 00 00
+T 1C 00 ED 51 3D B7 20 FA 23 10 F4 CD DC 1F C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gp2fill
+<REL>
+XL
+H 1 areas 2 global symbols
+M fill_color
+S .__.ABS. Def0000
+A _CODE size 19 flags 0 addr 0
+S _fill_color Def0000
+T 00 00 D1 C1 E1 E5 C5 D5 C5 26 00 29 29 29 54 5D
+R 00 00 00 00
+T 0E 00 E1 7C 26 04 29 29 29 CD 82 1F C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gp2mlt0
+<REL>
+XL
+H 1 areas 3 global symbols
+M change_multicolor
+S _change_multicolor_pattern Ref0000
+S .__.ABS. Def0000
+A _CODE size 15 flags 0 addr 0
+S _change_multicolor Def0000
+T 00 00 C1 D1 E1 E5 D5 C5 65 6A 01 01 00 C5 E5 D5
+R 00 00 00 00
+T 0E 00 CD 00 00 C1 C1 C1 C9
+R 00 00 00 00 02 03 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gp2mlt00
+<REL>
+XL
+H 1 areas 3 global symbols
+M change_multicolor
+S _change_multicolor_pattern0 Ref0000
+S .__.ABS. Def0000
+A _CODE size D flags 0 addr 0
+S _change_multicolor0 Def0000
+T 00 00 C1 E1 D1 D5 E5 C5 16 01 D5 E5 C3 00 00
+R 00 00 00 00 02 0D 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gp2mlt1
+<REL>
+XL
+H 1 areas 3 global symbols
+M change_multicolor
+S _put_vram_pattern Ref0000
+S .__.ABS. Def0000
+A _CODE size 2A flags 0 addr 0
+S _change_multicolor_pattern Def0000
+T 00 00 C1 D1 E1 E5 D5 C5 4C 65 6A E5 2A FA 73 AF
+R 00 00 00 00
+T 0E 00 47 57 EB 29 29 29 19 7C F6 40 67 EB E1 C5
+R 00 00 00 00
+T 1C 00 01 08 00 C5 E5 D5 CD 00 00 C1 C1 C1 C1 C9
+R 00 00 00 00 02 09 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gp2mlt10
+<REL>
+XL
+H 1 areas 3 global symbols
+M change_multicolor
+S _put_vram_pattern Ref0000
+S .__.ABS. Def0000
+A _CODE size 28 flags 0 addr 0
+S _change_multicolor_pattern0 Def0000
+T 00 00 C1 E1 D1 D5 E5 C5 4A E5 2A FA 73 AF 47 57
+R 00 00 00 00
+T 0E 00 EB 29 29 29 19 7C F6 40 67 EB E1 C5 01
+R 00 00 00 00
+T 1B 00 08 00 C5 E5 D5 CD 00 00 C1 C1 C1 C1 C9
+R 00 00 00 00 02 08 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gp2rlej
+<REL>
+XL
+H 1 areas 2 global symbols
+M rlej2vram
+S .__.ABS. Def0000
+A _CODE size 4D flags 0 addr 0
+S _rlej2vram Def0000
+T 00 00 C1 E1 D1 D5 E5 C5 3A 43 1D 4F ED 59 CB F2
+R 00 00 00 00
+T 0E 00 ED 51 3A 47 1D 4F 7E 23 FE FF C8 CB 7F 28
+R 00 00 00 00
+T 1C 00 26 E6 7F 3C 47 7E 23 FE 00 20 14 C5 4F 06
+R 00 00 00 00
+T 2A 00 00 EB 09 EB 3A 43 1D 4F ED 59 CB F2 ED 51
+R 00 00 00 00
+T 38 00 C1 18 D9 ED 79 13 00 10 FA 18 D1 3C 47 ED
+R 00 00 00 00
+T 46 00 A3 13 28 CA C3 45 00
+R 00 00 00 00 00 07 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gp9cent0
+<REL>
+XL
+H 1 areas 4 global symbols
+M center_string
+S _strlen0 Ref0000
+S calc_offset Ref0000
+S .__.ABS. Def0000
+A _CODE size 23 flags 0 addr 0
+S _center_string0 Def0000
+T 00 00 E1 D9 E1 D1 D5 E5 D9 E5 D9 D5 E5 CD 00 00
+R 00 00 00 00 02 0E 00 00
+T 0E 00 E5 06 00 4D CB 39 3E 10 91 C1 E1 D1 53 5F
+R 00 00 00 00
+T 1C 00 CD 00 00 79 C3 DF 1F
+R 00 00 00 00 02 03 01 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gp9centr
+<REL>
+XL
+H 1 areas 4 global symbols
+M center_string
+S _strlen0 Ref0000
+S calc_offset Ref0000
+S .__.ABS. Def0000
+A _CODE size 25 flags 0 addr 0
+S _center_string Def0000
+T 00 00 E1 D9 D1 E1 E5 D5 D9 E5 D9 65 6A D5 E5 CD
+R 00 00 00 00
+T 0E 00 00 00 E5 06 00 4D CB 39 3E 10 91 C1 E1 D1
+R 00 00 00 00 02 02 00 00
+T 1C 00 53 5F CD 00 00 79 C3 DF 1F
+R 00 00 00 00 02 05 01 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gp9fila0
+<REL>
+XL
+H 1 areas 3 global symbols
+M fill_at0
+S calc_offset Ref0000
+S .__.ABS. Def0000
+A _CODE size 14 flags 0 addr 0
+S _fill_at0 Def0000
+T 00 00 D9 E1 D9 D1 CD 00 00 E1 C1 C5 E5 D5 D9 E5
+R 00 00 00 00 02 07 00 00
+T 0E 00 D9 EB 79 C3 82 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gp9filat
+<REL>
+XL
+H 1 areas 3 global symbols
+M fill_at
+S calc_offset Ref0000
+S .__.ABS. Def0000
+A _CODE size 16 flags 0 addr 0
+S _fill_at Def0000
+T 00 00 D9 E1 D9 D1 CD 00 00 C1 E1 E5 C5 D5 D9 E5
+R 00 00 00 00 02 07 00 00
+T 0E 00 D9 65 68 EB 79 C3 82 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gp9fram0
+<REL>
+XL
+H 1 areas 3 global symbols
+M put_frame0
+S calc_offset Ref0000
+S .__.ABS. Def0000
+A _CODE size 29 flags 0 addr 0
+S _put_frame0 Def0000
+T 00 00 D9 E1 D9 E1 D1 CD 00 00 C1 C5 D5 E5 D9 E5
+R 00 00 00 00 02 08 00 00
+T 0E 00 D9 C5 D5 E5 06 00 AF CD DF 1F E1 D1 C1 C5
+R 00 00 00 00
+T 1C 00 06 00 09 EB 01 20 00 09 EB C1 10 E7 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gp9print
+<REL>
+XL
+H 1 areas 4 global symbols
+M print_at
+S _strlen0 Ref0000
+S calc_offset Ref0000
+S .__.ABS. Def0000
+A _CODE size 17 flags 0 addr 0
+S _print_at Def0000
+T 00 00 C1 D1 CD 00 00 E1 E5 D5 C5 D5 E5 CD 00 00
+R 00 00 00 00 02 05 01 00 02 0E 00 00
+T 0E 00 06 00 4D E1 D1 79 C3 DF 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gp9putat
+<REL>
+XL
+H 1 areas 3 global symbols
+M put_at
+S calc_offset Ref0000
+S .__.ABS. Def0000
+A _CODE size 13 flags 0 addr 0
+S _put_at Def0000
+T 00 00 D9 E1 D9 D1 CD 00 00 E1 C1 C5 E5 D5 D9 E5
+R 00 00 00 00 02 07 00 00
+T 0E 00 D9 79 C3 DF 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpascii0
+<REL>
+XL
+H 1 areas 3 global symbols
+M put_char
+S calc_offset Ref0000
+S .__.ABS. Def0000
+A _CODE size 13 flags 0 addr 0
+S _put_char Def0000
+T 00 00 E1 D1 D5 E5 21 04 00 39 CD 00 00 01 01 00
+R 00 00 00 00 02 0B 00 00
+T 0E 00 3E 01 C3 DF 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpascii1
+<REL>
+XL
+H 1 areas 3 global symbols
+M get_char
+S calc_offset Ref0000
+S .__.ABS. Def0000
+A _CODE size 16 flags 0 addr 0
+S _get_char Def0000
+T 00 00 E1 D1 D5 E5 21 00 00 E5 39 CD 00 00 01
+R 00 00 00 00 02 0C 00 00
+T 0D 00 01 00 3E 01 CD E2 1F E1 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpcaloff
+<REL>
+XL
+H 1 areas 2 global symbols
+M calc_offset
+S .__.ABS. Def0000
+A _CODE size B flags 0 addr 0
+S calc_offset Def0000
+T 00 00 CD C0 08 E5 2A F6 73 19 EB E1 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpchar
+<REL>
+XL
+H 1 areas 3 global symbols
+M upload_default_ascii
+S _upload_ascii Ref0000
+S .__.ABS. Def0000
+A _CODE size 19 flags 0 addr 0
+S _upload_default_ascii Def0000
+T 00 00 C1 E1 E5 C5 E5 2A F8 73 01 E8 00 09 E5 26
+R 00 00 00 00
+T 0E 00 63 2E 1D E5 CD 00 00 C1 C1 C1 C9
+R 00 00 00 00 02 07 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpchoice
+<REL>
+XL
+H 1 areas 4 global symbols
+M choice_keypad
+S _keypad_1 Ref0000
+S _keypad_2 Ref0000
+S .__.ABS. Def0000
+A _CODE size 3E flags 0 addr 0
+S _choice_keypad Def0000
+T 00 00 C1 E1 E5 C5 3A C4 73 F5 F6 20 4F 06 01 CD
+R 00 00 00 00
+T 0E 00 D9 1F CD DC 1F 3A 00 00 47 3A 00 00 4F 7C
+R 00 00 00 00 02 08 00 00 02 0C 01 00
+T 1C 00 B7 98 38 09 78 B7 9D 38 04 78 C3 34 00 7C
+R 00 00 00 00 00 0D 00 00
+T 2A 00 B7 99 38 E2 79 B7 9D 38 DD 79 26 00 6F F1
+R 00 00 00 00
+T 38 00 4F 06 01 C3 D9 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpcls
+<REL>
+XL
+H 1 areas 2 global symbols
+M cls
+S .__.ABS. Def0000
+A _CODE size C flags 0 addr 0
+S _cls Def0000
+T 00 00 2A F6 73 11 00 03 3E 20 CD 82 1F C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpcoffm3
+<REL>
+XL
+H 1 areas 2 global symbols
+M calc_offset3
+S .__.ABS. Def0000
+A _CODE size 15 flags 0 addr 0
+S calc_offset3 Def0000
+T 00 00 E5 7A E6 07 6F 7A 95 0F 0F 0F 67 7B E6 3E
+R 00 00 00 00
+T 0E 00 87 87 85 6F EB E1 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpcolor
+<REL>
+XL
+H 1 areas 3 global symbols
+M load_color
+S writevdp Ref0000
+S .__.ABS. Def0000
+A _CODE size 1B flags 0 addr 0
+S _load_color Def0000
+T 00 00 C1 E1 E5 C5 ED 5B FA 73 CD 00 00 01 BE 20
+R 00 00 00 00 02 0B 00 00
+T 0E 00 56 3E 40 ED 51 3D B7 20 FA 23 10 F4 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpcolrle
+<REL>
+XL
+H 1 areas 3 global symbols
+M load_colorrle
+S _rle2vram Ref0000
+S .__.ABS. Def0000
+A _CODE size F flags 0 addr 0
+S _load_colorrle Def0000
+T 00 00 E1 D1 D5 E5 2A FA 73 E5 D5 CD 00 00 D1 E1
+R 00 00 00 00 02 0C 00 00
+T 0E 00 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpdiv256
+<REL>
+XL
+H 1 areas 2 global symbols
+M load_ascii
+S .__.ABS. Def0000
+A _CODE size F flags 0 addr 0
+S _intdiv256 Def0000
+T 00 00 C1 E1 E5 C5 6C CB 7D 28 03 26 FF C9 26 00
+R 00 00 00 00
+T 0E 00 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpdsound
+<REL>
+XL
+H 1 areas 2 global symbols
+M dsound
+S .__.ABS. Def0000
+A _CODE size 71 flags 0 addr 0
+S _play_dsound Def0000
+T 00 00 D1 E1 C1 C5 E5 D5 03 C5 D5 CD 5D 00 D1 C1
+R 00 00 00 00 00 0C 00 00
+T 0E 00 7E B7 28 18 0F 0F 0F 0F CD 4B 00 7E 23 06
+R 00 00 00 00 00 0B 00 00
+T 1C 00 01 06 01 06 01 00 00 00 CD 4B 00 C3 0E 00
+R 00 00 00 00 00 0B 00 00 00 0E 00 00
+T 2A 00 23 56 7A FE 00 C2 38 00 C9 06 05 00 10 FE
+R 00 00 00 00 00 08 00 00
+T 38 00 06 02 10 FE 06 02 00 00 00 41 10 FE 15 20
+R 00 00 00 00
+T 46 00 EC 23 C3 0E 00 E6 0F F6 90 D3 FF F6 B0 D3
+R 00 00 00 00 00 05 00 00
+T 54 00 FF EE 60 D3 FF 41 10 FE C9 01 81 03 79 D3
+R 00 00 00 00
+T 62 00 FF C6 20 4F 3E 00 D3 FF 10 F4 3E FF D3 FF
+R 00 00 00 00
+T 70 00 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpfram0
+<REL>
+XL
+H 1 areas 2 global symbols
+M put_frame
+S .__.ABS. Def0000
+A _CODE size 18 flags 0 addr 0
+S _put_frame Def0000
+T 00 00 D9 E1 D9 E1 D1 C1 C5 D5 E5 D9 E5 D9 DD E5
+R 00 00 00 00
+T 0E 00 FD E5 CD 0B 08 FD E1 DD E1 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpfram1
+<REL>
+XL
+H 1 areas 2 global symbols
+M get_bkgrnd
+S .__.ABS. Def0000
+A _CODE size 18 flags 0 addr 0
+S _get_bkgrnd Def0000
+T 00 00 D9 E1 D9 E1 D1 C1 C5 D5 E5 D9 E5 D9 DD E5
+R 00 00 00 00
+T 0E 00 FD E5 CD 98 08 FD E1 DD E1 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpicture
+<REL>
+XL
+H 1 areas 5 global symbols
+M show_picture
+S _rle2vram Ref0000
+S _screen_on Ref0000
+S _screen_off Ref0000
+S .__.ABS. Def0000
+A _CODE size 1E flags 0 addr 0
+S _show_picture Def0000
+T 00 00 D1 E1 E5 D5 CD 00 00 01 00 20 C5 E5 CD
+R 00 00 00 00 02 07 02 00
+T 0D 00 00 00 01 00 00 C5 E5 CD 00 00 C1 C1 C1 C1
+R 00 00 00 00 02 02 00 00 02 0A 00 00
+T 1B 00 C3 00 00
+R 00 00 00 00 02 03 01 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gplascii
+<REL>
+XL
+H 1 areas 2 global symbols
+M load_ascii
+S .__.ABS. Def0000
+A _CODE size 8 flags 0 addr 0
+S _load_ascii Def0000
+T 00 00 DD E5 CD 7F 1F DD E1 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpm3pget
+<REL>
+XL
+H 1 areas 3 global symbols
+M get_m3_pixel
+S calc_offset3 Ref0000
+S .__.ABS. Def0000
+A _CODE size 2E flags 0 addr 0
+S _pget Def0000
+T 00 00 E1 D1 D5 E5 D5 21 00 00 E5 39 CD 00 00 01
+R 00 00 00 00 02 0D 00 00
+T 0E 00 01 00 3E 01 CD E2 1F E1 D1 7B E6 01 B7 20
+R 00 00 00 00
+T 1C 00 0C 7D CB 1F CB 1F CB 1F CB 1F C3 2A 00 7D
+R 00 00 00 00 00 0D 00 00
+T 2A 00 E6 0F 6F C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpm3pset
+<REL>
+XL
+H 1 areas 3 global symbols
+M set_m3_pixel
+S calc_offset3 Ref0000
+S .__.ABS. Def0000
+A _CODE size 53 flags 0 addr 0
+S _pset Def0000
+T 00 00 E1 D1 C1 C5 D5 E5 D5 21 00 00 E5 39 CD
+R 00 00 00 00
+T 0D 00 00 00 D5 C5 01 01 00 3E 01 CD E2 1F C1 D1
+R 00 00 00 00 02 02 00 00
+T 1B 00 E1 7D EB D1 F5 7B E6 01 B7 28 0A 79 E6 0F
+R 00 00 00 00
+T 29 00 4F F1 E6 F0 C3 3F 00 79 CB 17 CB 17 CB 17
+R 00 00 00 00 00 07 00 00
+T 37 00 CB 17 E6 F0 4F F1 E6 0F B1 16 00 5F D5 EB
+R 00 00 00 00
+T 45 00 21 00 00 39 01 01 00 3E 01 CD DF 1F D1 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpnamrle
+<REL>
+XL
+H 1 areas 3 global symbols
+M load_namerle
+S _rle2vram Ref0000
+S .__.ABS. Def0000
+A _CODE size F flags 0 addr 0
+S _load_namerle Def0000
+T 00 00 E1 D1 D5 E5 2A F6 73 E5 D5 CD 00 00 D1 E1
+R 00 00 00 00 02 0C 00 00
+T 0E 00 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gppaper
+<REL>
+XL
+H 1 areas 2 global symbols
+M paper
+S .__.ABS. Def0000
+A _CODE size 9 flags 0 addr 0
+S _paper Def0000
+T 00 00 E1 C1 C5 E5 06 07 C3 D9 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gppatrle
+<REL>
+XL
+H 1 areas 3 global symbols
+M load_patternrle
+S _rle2vram Ref0000
+S .__.ABS. Def0000
+A _CODE size F flags 0 addr 0
+S _load_patternrle Def0000
+T 00 00 E1 D1 D5 E5 2A F8 73 E5 D5 CD 00 00 D1 E1
+R 00 00 00 00 02 0C 00 00
+T 0E 00 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gppause
+<REL>
+XL
+H 1 areas 4 global symbols
+M pause
+S _joypad_1 Ref0000
+S _joypad_2 Ref0000
+S .__.ABS. Def0000
+A _CODE size 2D flags 0 addr 0
+S _pause Def0000
+T 00 00 3A C4 73 F5 F6 20 4F 06 01 CD D9 1F E5 3A
+R 00 00 00 00
+T 0E 00 00 00 67 3A 00 00 B4 E6 F0 20 F4 3A 00 00
+R 00 00 00 00 02 02 00 00 02 06 01 00 02 0E 00 00
+T 1C 00 67 3A 00 00 B4 E6 F0 28 F4 E1 F1 4F 06 01
+R 00 00 00 00 02 04 01 00
+T 2A 00 C3 D9 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gppaused
+<REL>
+XL
+H 1 areas 4 global symbols
+M pause_delay
+S _joypad_1 Ref0000
+S _joypad_2 Ref0000
+S .__.ABS. Def0000
+A _CODE size 32 flags 0 addr 0
+S _pause_delay Def0000
+T 00 00 E1 D1 D5 E5 3A C4 73 F5 F6 20 4F 06 01 CD
+R 00 00 00 00
+T 0E 00 D9 1F CD DC 1F D5 3A 00 00 E6 F0 47 3A
+R 00 00 00 00 02 09 00 00
+T 1B 00 00 00 E6 F0 B0 20 08 76 D1 1B D5 7B B2 20
+R 00 00 00 00 02 02 01 00
+T 29 00 EA D1 F1 4F 06 01 C3 D9 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gprnd0
+<REL>
+XL
+H 1 areas 4 global symbols
+M rnd
+S absdiff_max_min Ref0000
+S rnd1 Ref0000
+S .__.ABS. Def0000
+A _CODE size C flags 0 addr 0
+S _rnd Def0000
+T 00 00 C1 D1 E1 E5 D5 C5 CD 00 00 C3 00 00
+R 00 00 00 00 02 09 00 00 02 0C 01 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gprnd1
+<REL>
+XL
+H 1 areas 4 global symbols
+M rnd_byte
+S absdiff_max_min Ref0000
+S rnd1 Ref0000
+S .__.ABS. Def0000
+A _CODE size E flags 0 addr 0
+S _rnd_byte Def0000
+T 00 00 E1 D1 D5 E5 6A AF 67 57 CD 00 00 C3 00 00
+R 00 00 00 00 02 0B 00 00 02 0E 01 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gprnd2
+<REL>
+XL
+H 1 areas 3 global symbols
+M rnd1
+S .__.ABS. Def0000
+S _get_random Ref0000
+A _CODE size 2F flags 0 addr 0
+S rnd1 Def0000
+T 00 00 01 FF FF 7C B7 20 09 47 7D C3 10 00 CB 38
+R 00 00 00 00 00 0C 00 00
+T 0E 00 CB 19 B7 17 30 F8 D5 EB D5 C5 CD 00 00 C1
+R 00 00 00 00 02 0D 01 00
+T 1C 00 D1 7C A0 67 7D A1 6F B7 D5 EB ED 52 EB D1
+R 00 00 00 00
+T 2A 00 38 EA D1 19 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gprnd3
+<REL>
+XL
+H 1 areas 3 global symbols
+M absdiff_byte
+S absdiff_max_min Ref0000
+S .__.ABS. Def0000
+A _CODE size B flags 0 addr 0
+S _absdiff_byte Def0000
+T 00 00 E1 D1 D5 E5 6A AF 67 57 C3 00 00
+R 00 00 00 00 02 0B 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gprnd4
+<REL>
+XL
+H 1 areas 3 global symbols
+M absdiff
+S absdiff_max_min Ref0000
+S .__.ABS. Def0000
+A _CODE size 9 flags 0 addr 0
+S _absdiff Def0000
+T 00 00 C1 D1 E1 E5 D5 C5 C3 00 00
+R 00 00 00 00 02 09 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gprnd5
+<REL>
+XL
+H 1 areas 2 global symbols
+M absdiff_max_min
+S .__.ABS. Def0000
+A _CODE size C flags 0 addr 0
+S absdiff_max_min Def0000
+T 00 00 E5 C1 ED 52 30 05 C5 E1 EB ED 52 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpscore0
+<REL>
+XL
+H 1 areas 2 global symbols
+M score
+S .__.ABS. Def0000
+A _CODE size D flags 0 addr 0
+S _score_reset Def0000
+T 00 00 C1 E1 E5 C5 AF 77 23 77 23 77 23 77 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpscore1
+<REL>
+XL
+H 1 areas 2 global symbols
+M score
+S .__.ABS. Def0000
+A _CODE size 27 flags 0 addr 0
+S _score_add Def0000
+T 00 00 D1 E1 C1 C5 E5 D5 E5 5E 23 56 23 EB 09 EB
+R 00 00 00 00
+T 0E 00 4E 23 46 EB B7 11 10 27 ED 52 03 30 FB 0B
+R 00 00 00 00
+T 1C 00 19 EB E1 73 23 72 23 71 23 70 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpscore2
+<REL>
+XL
+H 1 areas 3 global symbols
+M score
+S _score_cmp_lt Ref0000
+S .__.ABS. Def0000
+A _CODE size E flags 0 addr 0
+S _score_cmp_gt Def0000
+T 00 00 C1 D1 E1 E5 D5 C5 D5 E5 CD 00 00 C1 C1 C9
+R 00 00 00 00 02 0B 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpscore3
+<REL>
+XL
+H 1 areas 2 global symbols
+M score
+S .__.ABS. Def0000
+A _CODE size 36 flags 0 addr 0
+S _score_cmp_lt Def0000
+T 00 00 C1 D1 E1 E5 D5 C5 E5 D5 23 23 4E 23 46 EB
+R 00 00 00 00
+T 0E 00 23 23 7E 23 66 6F B7 ED 42 38 17 20 10 D1
+R 00 00 00 00
+T 1C 00 E1 E5 D5 4E 23 46 EB 7E 23 66 6F ED 42 38
+R 00 00 00 00
+T 2A 00 05 21 00 00 18 03 21 01 00 C1 C1 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpscore4
+<REL>
+XL
+H 1 areas 2 global symbols
+M score
+S .__.ABS. Def0000
+A _CODE size 34 flags 0 addr 0
+S _score_cmp_equ Def0000
+T 00 00 C1 D1 E1 E5 D5 C5 E5 D5 23 23 4E 23 46 EB
+R 00 00 00 00
+T 0E 00 23 23 7E 23 66 6F B7 ED 42 20 15 D1 E1 E5
+R 00 00 00 00
+T 1C 00 D5 4E 23 46 EB 7E 23 66 6F ED 42 20 05 21
+R 00 00 00 00
+T 2A 00 01 00 18 03 21 00 00 C1 C1 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpscore5
+<REL>
+XL
+H 2 areas 3 global symbols
+M score
+S _utoa0 Ref0000
+S .__.ABS. Def0000
+A _CODE size 33 flags 0 addr 0
+S _score_str Def0000
+A _DATA size A flags 0 addr 0
+T 00 00 D1 E1 C1 C5 E5 D5 C5 5E 23 56 23 E5 01
+R 00 00 00 00
+T 0D 00 04 00 C5 D5 CD 00 00 C1 C1 E1 5E 23 56 01
+R 00 00 00 00 00 02 01 00 02 07 00 00
+T 1B 00 00 00 C5 D5 CD 00 00 C1 C1 AF 32 09 00 C1
+R 00 00 00 00 00 02 01 00 02 07 00 00 00 0D 01 00
+T 29 00 21 09 00 ED 42 11 00 00 19 C9
+R 00 00 00 00 00 08 01 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpscore6
+<REL>
+XL
+H 1 areas 2 global symbols
+M score
+S .__.ABS. Def0000
+A _CODE size C flags 0 addr 0
+S _score_copy Def0000
+T 00 00 C1 E1 D1 D5 E5 C5 01 04 00 ED B0 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpscreen
+<REL>
+XL
+H 2 areas 3 global symbols
+M screen
+S .__.ABS. Def0000
+A _CODE size 2B flags 0 addr 0
+S _screen Def0000
+S _swap_screen Def0021
+A _DATA size 2 flags 0 addr 0
+T 00 00 D9 E1 D9 E1 D1 D5 E5 D9 E5 D9 22 00 00 D5
+R 00 00 00 00 00 0D 01 00
+T 0E 00 DD E5 FD E5 3E 02 CD B8 1F FD E1 DD E1 D1
+R 00 00 00 00
+T 1C 00 ED 53 F6 73 C9 ED 5B 00 00 2A F6 73 C3
+R 00 00 00 00 00 09 01 00
+T 29 00 0A 00
+R 00 00 00 00 00 02 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpscrmo0
+<REL>
+XL
+H 1 areas 3 global symbols
+M screen_mode_2
+S default_set_mode_2 Ref0000
+S .__.ABS. Def0000
+A _CODE size 3B flags 0 addr 0
+S _screen_mode_2_bitmap Def0000
+T 00 00 F5 C5 D5 E5 DD E5 FD E5 3A C4 73 E6 A7 F6
+R 00 00 00 00
+T 0E 00 82 4F 06 01 CD D9 1F 01 FF 03 CD D9 1F 01
+R 00 00 00 00
+T 1C 00 03 04 CD D9 1F AF D3 BF 3E 18 CB F7 D3 BF
+R 00 00 00 00
+T 2A 00 16 03 AF D3 BE 00 3C C2 2D 00 15 C2 2C 00
+R 00 00 00 00 00 0A 00 00 00 0E 00 00
+T 38 00 C3 00 00
+R 00 00 00 00 02 03 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpscrmo1
+<REL>
+XL
+H 1 areas 3 global symbols
+M screen_mode_2
+S default_set_mode_2 Ref0000
+S .__.ABS. Def0000
+A _CODE size 24 flags 0 addr 0
+S _screen_mode_2_text Def0000
+T 00 00 F5 C5 D5 E5 DD E5 FD E5 3A C4 73 E6 A7 F6
+R 00 00 00 00
+T 0E 00 82 4F 06 01 CD D9 1F 01 9F 03 CD D9 1F 01
+R 00 00 00 00
+T 1C 00 03 04 CD D9 1F C3 00 00
+R 00 00 00 00 02 08 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpscrmo2
+<REL>
+XL
+H 1 areas 3 global symbols
+M default_vdp_reg
+S .__.ABS. Def0000
+A _CODE size 17 flags 0 addr 0
+S default_set_mode_2 Def0000
+S default_vdp_reg Def0006
+T 00 00 01 02 00 CD D9 1F 3E 02 21 00 18 CD B8 1F
+R 00 00 00 00
+T 0E 00 FD E1 DD E1 E1 D1 C1 F1 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpscrmo3
+<REL>
+XL
+H 1 areas 3 global symbols
+M screen_mode_3
+S default_vdp_reg Ref0000
+S .__.ABS. Def0000
+A _CODE size 55 flags 0 addr 0
+S _screen_mode_3_bitmap Def0000
+T 00 00 F5 C5 D5 E5 DD E5 FD E5 3A C3 73 E6 FD 4F
+R 00 00 00 00
+T 0E 00 06 00 CD D9 1F 3A C4 73 E6 AF F6 8A 4F 06
+R 00 00 00 00
+T 1C 00 01 CD D9 1F 01 80 03 CD D9 1F 01 00 04 CD
+R 00 00 00 00
+T 2A 00 D9 1F AF D3 BF 3E 18 CB F7 D3 BF AF 26 06
+R 00 00 00 00
+T 38 00 16 04 1E 20 D3 BE 00 3C 1D C2 3C 00 1E E0
+R 00 00 00 00 00 0C 00 00
+T 46 00 83 15 C2 3A 00 1E 20 83 25 C2 38 00 C3
+R 00 00 00 00 00 05 00 00 00 0C 00 00
+T 53 00 00 00
+R 00 00 00 00 02 02 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpscrmo4
+<REL>
+XL
+H 1 areas 3 global symbols
+M screen_mode_1
+S default_vdp_reg Ref0000
+S .__.ABS. Def0000
+A _CODE size 3A flags 0 addr 0
+S _screen_mode_1_text Def0000
+T 00 00 F5 C5 D5 E5 DD E5 FD E5 3A C3 73 E6 FD 4F
+R 00 00 00 00
+T 0E 00 06 00 CD D9 1F 3A C4 73 E6 A7 F6 82 4F 06
+R 00 00 00 00
+T 1C 00 01 CD D9 1F 01 80 03 CD D9 1F 01 00 04 CD
+R 00 00 00 00
+T 2A 00 D9 1F 21 00 18 11 00 03 3E 20 CD 82 1F C3
+R 00 00 00 00
+T 38 00 00 00
+R 00 00 00 00 02 02 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpsprit0
+<REL>
+XL
+H 1 areas 3 global symbols
+M sprites_simple
+S set_reg_1 Ref0000
+S .__.ABS. Def0000
+A _CODE size 8 flags 0 addr 0
+S _sprites_simple Def0000
+T 00 00 3A C4 73 E6 FE C3 00 00
+R 00 00 00 00 02 08 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpsprit1
+<REL>
+XL
+H 1 areas 3 global symbols
+M sprites_double
+S set_reg_1 Ref0000
+S .__.ABS. Def0000
+A _CODE size 8 flags 0 addr 0
+S _sprites_double Def0000
+T 00 00 3A C4 73 F6 01 C3 00 00
+R 00 00 00 00 02 08 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpsprit2
+<REL>
+XL
+H 1 areas 3 global symbols
+M sprites_double
+S set_reg_1 Ref0000
+S .__.ABS. Def0000
+A _CODE size 8 flags 0 addr 0
+S _sprites_8x8 Def0000
+T 00 00 3A C4 73 E6 FD C3 00 00
+R 00 00 00 00 02 08 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpsprit3
+<REL>
+XL
+H 1 areas 3 global symbols
+M sprites_double
+S set_reg_1 Ref0000
+S .__.ABS. Def0000
+A _CODE size 8 flags 0 addr 0
+S _sprites_16x16 Def0000
+T 00 00 3A C4 73 F6 02 C3 00 00
+R 00 00 00 00 02 08 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpsprit4
+<REL>
+XL
+H 1 areas 2 global symbols
+M set_reg_1
+S .__.ABS. Def0000
+A _CODE size 6 flags 0 addr 0
+S set_reg_1 Def0000
+T 00 00 4F 06 01 C3 D9 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpsptrle
+<REL>
+XL
+H 1 areas 3 global symbols
+M load_ascii
+S _rle2vram Ref0000
+S .__.ABS. Def0000
+A _CODE size F flags 0 addr 0
+S _load_spatternrle Def0000
+T 00 00 E1 D1 D5 E5 2A F4 73 E5 D5 CD 00 00 D1 E1
+R 00 00 00 00 02 0C 00 00
+T 0E 00 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpsqrt16
+<REL>
+XL
+H 1 areas 2 global symbols
+M sqrt16
+S .__.ABS. Def0000
+A _CODE size 21 flags 0 addr 0
+S _sqrt16 Def0000
+T 00 00 D1 E1 E5 D5 11 40 00 7D 6C 62 B7 06 08 ED
+R 00 00 00 00
+T 0E 00 52 30 01 19 3F CB 12 87 ED 6A 87 ED 6A 10
+R 00 00 00 00
+T 1C 00 F0 26 00 6A C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpstr
+<REL>
+XL
+H 2 areas 3 global symbols
+M str
+S _utoa0 Ref0000
+S .__.ABS. Def0000
+A _CODE size 16 flags 0 addr 0
+S _str Def0000
+A _DATA size 6 flags 0 addr 0
+T 00 00 E1 C1 C5 E5 21 00 00 E5 C5 CD 00 00 C1 C1
+R 00 00 00 00 00 07 01 00 02 0C 00 00
+T 0E 00 AF 32 05 00 21 00 00 C9
+R 00 00 00 00 00 04 01 00 00 07 01 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpstrlen
+<REL>
+XL
+H 1 areas 2 global symbols
+M strlen0
+S .__.ABS. Def0000
+A _CODE size E flags 0 addr 0
+S _strlen0 Def0000
+T 00 00 E1 D1 D5 E5 21 00 00 1A B7 C8 23 13 18 F9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpupdats
+<REL>
+XL
+H 1 areas 3 global symbols
+M updatesprites
+S _update_sprites0 Ref0000
+S .__.ABS. Def0000
+A _CODE size 17 flags 0 addr 0
+S _updatesprites Def0000
+T 00 00 D1 E1 E5 D5 AF 4C 67 47 29 29 EB 2A F2 73
+R 00 00 00 00
+T 0E 00 19 C5 E5 CD 00 00 E1 C1 C9
+R 00 00 00 00 02 06 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gputoa0
+<REL>
+XL
+H 1 areas 2 global symbols
+M utoa0
+S .__.ABS. Def0000
+A _CODE size 2F flags 0 addr 0
+S _utoa0 Def000D
+T 00 00 AF ED 42 3C 30 FB 3D 09 C6 30 12 13 C9 C1
+R 00 00 00 00
+T 0E 00 E1 D1 D5 E5 C5 01 10 27 CD 00 00 01 E8 03
+R 00 00 00 00 00 0B 00 00
+T 1C 00 CD 00 00 01 64 00 CD 00 00 0E 0A CD 00 00
+R 00 00 00 00 00 03 00 00 00 09 00 00 00 0E 00 00
+T 2A 00 7D C6 30 12 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpwipedn
+<REL>
+XL
+H 1 areas 3 global symbols
+M wipe_off
+S _delay Ref0000
+S .__.ABS. Def0000
+A _CODE size 30 flags 0 addr 0
+S _wipe_off_down Def0000
+T 00 00 2A FA 73 06 18 C5 06 08 C5 11 01 00 E5 D5
+R 00 00 00 00
+T 0E 00 CD 00 00 D1 E1 06 20 AF D5 CD 82 1F 11
+R 00 00 00 00 02 03 00 00
+T 1B 00 08 00 19 D1 10 F4 11 01 FF 19 C1 10 E0 11
+R 00 00 00 00
+T 29 00 F8 00 19 C1 10 D6 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+gpwipeup
+<REL>
+XL
+H 1 areas 3 global symbols
+M wipe_off
+S _delay Ref0000
+S .__.ABS. Def0000
+A _CODE size 34 flags 0 addr 0
+S _wipe_off_up Def0000
+T 00 00 2A FA 73 11 FF 17 19 06 18 C5 06 08 C5 11
+R 00 00 00 00
+T 0E 00 01 00 E5 D5 CD 00 00 D1 E1 06 20 AF D5 CD
+R 00 00 00 00 02 07 00 00
+T 1C 00 82 1F 11 F8 FF 19 D1 10 F4 11 FF 00 19 C1
+R 00 00 00 00
+T 2A 00 10 E0 11 08 FF 19 C1 10 D6 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+</FILES>
+
+</SDCCLIB>

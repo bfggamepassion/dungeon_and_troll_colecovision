@@ -1,0 +1,57 @@
+XL2
+H D areas D global symbols
+M crt0
+S _main Ref0000
+S ___memcpy_PARM_2 Ref0000
+S ___memcpy_PARM_3 Ref0000
+S _memset_PARM_2 Ref0000
+S _memset_PARM_3 Ref0000
+S l_XINIT Ref0000
+S s_XINIT Ref0000
+S .__.ABS. Def0000
+S ___memcpy Ref0000
+S _memset Ref0000
+S s_DATA Ref0000
+S l_BSS Ref0000
+S s_BSS Ref0000
+A _CODE size 0 flags 0 addr 0
+A GSINIT size 34 flags 0 addr 0
+A GSFINAL size 6 flags 0 addr 0
+A CODE size 0 flags 0 addr 0
+A RODATA size 0 flags 0 addr 0
+A XINIT size 0 flags 0 addr 0
+A ZP size 0 flags 10 addr 0
+A OSEG size 0 flags 14 addr 0
+A _DATA size 0 flags 0 addr 0
+A DATA size 0 flags 0 addr 0
+A BSS size 0 flags 0 addr 0
+A CODEIVT size 0 flags 8 addr 0
+A CODEIVT0 size 6 flags 8 addr FFFA
+T FA FF
+R 00 00 0C 00
+T FA FF 00 00 00 00 00 00
+R 00 00 0C 00 00 02 01 00 00 04 01 00 00 06 01 00
+T 00 00
+R 00 00 01 00
+T 00 00 A2 FF 9A
+R 00 00 01 00
+T 03 00
+R 00 00 01 00
+T 03 00 A9 00 00 8D 00 00 A9 00 00 8D
+R 00 00 01 00 0B 03 06 00 02 06 01 00 8B 09 06 00
+T 0B 00 01 00 A9 00 00 8D 00 00 A9
+R 00 00 01 00 02 02 01 00 0B 05 05 00 02 08 02 00
+T 13 00 00 00 8D 01 00 A9 00 00 A2
+R 00 00 01 00 8B 02 05 00 02 05 02 00 0B 08 0A 00
+T 1A 00 00 00 20 00 00 A9 00 8D 00 00 A9
+R 00 00 01 00 8B 02 0A 00 02 05 08 00 02 0A 03 00
+T 24 00 00 00 8D 00 00 A9 00 00 8D
+R 00 00 01 00 0B 02 0B 00 02 05 04 00 8B 08 0B 00
+T 2B 00 01 00 A9 00 00 A2 00 00 20
+R 00 00 01 00 02 02 04 00 0B 05 0C 00 8B 08 0C 00
+T 32 00 00 00
+R 00 00 01 00 02 02 09 00
+T 00 00
+R 00 00 02 00
+T 00 00 20 00 00 4C 03 00
+R 00 00 02 00 02 03 00 00 00 06 02 00

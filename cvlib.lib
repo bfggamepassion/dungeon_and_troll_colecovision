@@ -1,0 +1,1217 @@
+<SDCCLIB>
+
+<INDEX>
+      2866
+<MODULE>
+ascii 11
+.__.ABS.
+upload_procs
+_upload_ascii
+</MODULE>
+
+<MODULE>
+br2vram 1090
+.__.ABS.
+_brle2vram
+</MODULE>
+
+<MODULE>
+collisio 1605
+.__.ABS.
+_check_collision
+</MODULE>
+
+<MODULE>
+delay 2479
+.__.ABS.
+_delay
+</MODULE>
+
+<MODULE>
+get_rand 2889
+.__.ABS.
+_get_random
+</MODULE>
+
+<MODULE>
+indir 3115
+.__.ABS.
+indir
+</MODULE>
+
+<MODULE>
+memcpyb 3307
+.__.ABS.
+_memcpyb
+</MODULE>
+
+<MODULE>
+memcpyf 3549
+.__.ABS.
+_memcpyf
+</MODULE>
+
+<MODULE>
+music 3834
+.__.ABS.
+_play_music
+_next_music
+_update_music
+_stop_music
+</MODULE>
+
+<MODULE>
+mute 5501
+.__.ABS.
+_mute_all
+</MODULE>
+
+<MODULE>
+nmi 5804
+.__.ABS.
+_disable_nmi
+</MODULE>
+
+<MODULE>
+nmi2 6056
+.__.ABS.
+_enable_nmi
+</MODULE>
+
+<MODULE>
+os7 6317
+.__.ABS.
+_os7
+</MODULE>
+
+<MODULE>
+primpkg0 6577
+.__.ABS.
+_reflect_vertical
+</MODULE>
+
+<MODULE>
+primpkg1 6946
+.__.ABS.
+_reflect_horizontal
+</MODULE>
+
+<MODULE>
+primpkg2 7319
+.__.ABS.
+_rotate_90
+</MODULE>
+
+<MODULE>
+rle2ram 7673
+.__.ABS.
+_rle2ram
+</MODULE>
+
+<MODULE>
+rle2vram 8020
+.__.ABS.
+_rle2vram
+</MODULE>
+
+<MODULE>
+scrn_off 8468
+.__.ABS.
+_screen_off
+</MODULE>
+
+<MODULE>
+scrn_off_dis_nmi 8727
+.__.ABS.
+_screen_off_disable_nmi
+</MODULE>
+
+<MODULE>
+scrn_on 9006
+.__.ABS.
+_screen_on
+</MODULE>
+
+<MODULE>
+scrn_on_ena_nmi 9263
+.__.ABS.
+_screen_on_enable_nmi
+</MODULE>
+
+<MODULE>
+sndtbl 9548
+.__.ABS.
+set_snd_table
+_set_snd_table
+</MODULE>
+
+<MODULE>
+sound 9889
+.__.ABS.
+_play_sound
+</MODULE>
+
+<MODULE>
+spinner 10165
+.__.ABS.
+_disable_spinner
+_reset_spinners
+_enable_spinner
+_reset_spinner_1
+</MODULE>
+
+<MODULE>
+sprites0 10762
+.__.ABS.
+_update_sprites
+</MODULE>
+
+<MODULE>
+sprites1 11521
+.__.ABS.
+_clear_sprites
+</MODULE>
+
+<MODULE>
+sprites2 11883
+.__.ABS.
+sprite_count
+_sprites
+</MODULE>
+
+<MODULE>
+sprites3 12118
+.__.ABS.
+_update_sprites0
+</MODULE>
+
+<MODULE>
+ssound 12849
+.__.ABS.
+_stop_sound
+</MODULE>
+
+<MODULE>
+utoa 13220
+.__.ABS.
+_utoa
+</MODULE>
+
+<MODULE>
+vdp0 13756
+.__.ABS.
+_vdp_out
+</MODULE>
+
+<MODULE>
+vdp1 13976
+.__.ABS.
+_fill_vram
+</MODULE>
+
+<MODULE>
+vdp2 14252
+.__.ABS.
+_put_vram
+</MODULE>
+
+<MODULE>
+vdp3 14535
+.__.ABS.
+_get_vram
+</MODULE>
+
+<MODULE>
+vdp4 14818
+.__.ABS.
+_vdp_out0
+</MODULE>
+
+<MODULE>
+vdp5 15034
+.__.ABS.
+_fill_vram0
+</MODULE>
+
+<MODULE>
+vdpex 15306
+.__.ABS.
+_put_vram_ex
+</MODULE>
+
+<MODULE>
+vdpname 15712
+.__.ABS.
+_set_default_name_table
+</MODULE>
+
+<MODULE>
+vdppat 16087
+.__.ABS.
+_put_vram_pattern
+</MODULE>
+
+<MODULE>
+vdppat0 16510
+.__.ABS.
+_put_vram_pattern0
+</MODULE>
+
+<MODULE>
+vdppat1 16930
+.__.ABS.
+_duplicate_pattern
+</MODULE>
+
+<MODULE>
+vdpwrite 17486
+.__.ABS.
+vdpwrite
+</MODULE>
+
+<MODULE>
+writevdpreg1 17706
+.__.ABS.
+writevdpreg1
+</MODULE>
+
+</INDEX>
+
+<FILES>
+
+<FILE>
+ascii
+<REL>
+XL
+H 1 areas 4 global symbols
+M ascii
+S indir Ref0000
+S .__.ABS. Def0000
+A _CODE size A0 flags 0 addr 0
+S upload_procs Def0098
+S _upload_ascii Def0000
+T 00 00 D1 E1 D9 D1 3A 43 1D 4F ED 59 CB F2 ED 51
+R 00 00 00 00
+T 0E 00 C1 79 C5 D9 E5 E5 D5 4C 26 00 29 29 29 ED
+R 00 00 00 00
+T 1C 00 5B 6A 00 19 11 F8 FD 19 D9 21 98 00 E6 03
+R 00 00 00 00 00 0C 00 00
+T 2A 00 87 85 6F 3E 00 8C 67 7E 23 66 6F D9 79 D9
+R 00 00 00 00
+T 38 00 47 D9 3A 47 1D 4F D9 CD 00 00 10 FB C9 D9
+R 00 00 00 00 02 0A 00 00
+T 46 00 06 08 ED A3 00 00 C2 48 00 D9 C9 D9 06 04
+R 00 00 00 00 00 09 00 00
+T 54 00 7E 23 0F E6 7F ED 79 10 F7 06 04 ED A3 00
+R 00 00 00 00
+T 62 00 00 C2 5F 00 D9 C9 D9 06 08 7E 23 57 0F E6
+R 00 00 00 00 00 04 00 00
+T 70 00 7F B2 ED 79 10 F5 D9 C9 D9 06 04 7E 23 57
+R 00 00 00 00
+T 7E 00 0F E6 7F B2 0F E6 7F ED 79 10 F2 06 04 7E
+R 00 00 00 00
+T 8C 00 23 57 0F E6 7F B2 ED 79 10 F5 D9 C9 45 00
+R 00 00 00 00 00 0E 00 00
+T 9A 00 51 00 68 00 78 00
+R 00 00 00 00 00 02 00 00 00 04 00 00 00 06 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+br2vram
+<REL>
+XL
+H 1 areas 3 global symbols
+M brle_to_vram
+S vdpwrite Ref0000
+S .__.ABS. Def0000
+A _CODE size 39 flags 0 addr 0
+S _brle2vram Def0000
+T 00 00 C1 E1 D1 D5 E5 C5 CD 00 00 0E BE 7E 23 FE
+R 00 00 00 00 02 09 00 00
+T 0E 00 FF C8 CB 7F 28 1C E6 7F 16 01 FE 67 38 05
+R 00 00 00 00
+T 1C 00 D6 66 57 3E FF 3C 47 7E 23 ED 79 00 00 10
+R 00 00 00 00
+T 2A 00 FA 15 20 F7 18 DB 3C 47 ED A3 28 D5 C3
+R 00 00 00 00
+T 37 00 32 00
+R 00 00 00 00 00 02 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+collisio
+<REL>
+XL
+H 1 areas 2 global symbols
+M collision
+S .__.ABS. Def0000
+A _CODE size 8E flags 0 addr 0
+S _check_collision Def0000
+T 00 00 DD E5 DD 21 04 00 DD 39 DD 6E 00 DD 66 01
+R 00 00 00 00
+T 0E 00 7E C6 20 DD 86 06 5F 16 00 DD 6E 02 DD 66
+R 00 00 00 00
+T 1C 00 03 7E C6 20 DD 86 0A 6F 26 00 DD 46 0B EB
+R 00 00 00 00
+T 2A 00 B7 ED 52 30 08 DD 46 07 19 EB B7 ED 52 7D
+R 00 00 00 00
+T 38 00 B8 30 4B DD 6E 00 DD 66 01 23 5E 23 23 7E
+R 00 00 00 00
+T 46 00 E6 80 0F 0F EE 20 DD 86 04 83 5F 3E 00 8F
+R 00 00 00 00
+T 54 00 57 DD 6E 02 DD 66 03 23 4E 23 23 7E E6 80
+R 00 00 00 00
+T 62 00 0F 0F EE 20 DD 86 08 81 6F 3E 00 8F 67 DD
+R 00 00 00 00
+T 70 00 46 09 EB B7 ED 52 30 08 DD 46 05 19 EB B7
+R 00 00 00 00
+T 7E 00 ED 52 7C B7 20 02 7D B8 21 00 00 ED 6A DD
+R 00 00 00 00
+T 8C 00 E1 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+delay
+<REL>
+XL
+H 1 areas 3 global symbols
+M delay
+S _nmi_flag Ref0000
+S .__.ABS. Def0000
+A _CODE size 2A flags 0 addr 0
+S _delay Def0000
+T 00 00 E1 D1 D5 E5 3A C4 73 E6 20 28 10 7B B2 C8
+R 00 00 00 00
+T 0E 00 AF 32 00 00 3A 00 00 B7 28 FA 1B 18 F0 CD
+R 00 00 00 00 02 04 00 00 02 07 00 00
+T 1C 00 DC 1F 7B B2 C8 CD DC 1F 07 30 FA 1B 18 F4
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+get_rand
+<REL>
+XL
+H 1 areas 2 global symbols
+M getrandom
+S .__.ABS. Def0000
+A _CODE size 8 flags 0 addr 0
+S _get_random Def0000
+T 00 00 CD FD 1F ED 5F AD 6F C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+indir
+<REL>
+XL
+H 1 areas 2 global symbols
+M indir
+S .__.ABS. Def0000
+A _CODE size 1 flags 0 addr 0
+S indir Def0000
+T 00 00 E9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+memcpyb
+<REL>
+XL
+H 1 areas 2 global symbols
+M memorycopyb
+S .__.ABS. Def0000
+A _CODE size E flags 0 addr 0
+S _memcpyb Def0000
+T 00 00 C1 D9 D1 E1 C1 C5 E5 D5 D9 C5 D9 ED B0 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+memcpyf
+<REL>
+XL
+H 1 areas 2 global symbols
+M memorycopyf
+S .__.ABS. Def0000
+A _CODE size 14 flags 0 addr 0
+S _memcpyf Def0000
+T 00 00 C1 D9 D1 E1 C1 C5 E5 D5 D9 C5 D9 09 2B EB
+R 00 00 00 00
+T 0E 00 09 2B EB ED B8 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+music
+<REL>
+XL
+H 2 areas 5 global symbols
+M music
+S .__.ABS. Def0000
+A _CODE size 100 flags 0 addr 0
+S _play_music Def000D
+S _next_music Def0002
+S _update_music Def0017
+S _stop_music Def00D7
+A _DATA size 4 flags 0 addr 0
+T 00 00 00 00 C1 D1 D5 C5 21 00 00 73 23 72 C9 C1
+R 00 00 00 00 00 09 01 00
+T 0E 00 D1 D5 C5 CD 06 00 C3 2E 00 21 03 00 7E 2B
+R 00 00 00 00 00 06 00 00 00 09 00 00 00 0C 01 00
+T 1C 00 B7 20 05 7E B7 CA 2E 00 7E D6 01 77 23 7E
+R 00 00 00 00 00 08 00 00
+T 2A 00 DE 00 77 C9 21 00 00 5E 23 56 EB 5E 23 56
+R 00 00 00 00 00 07 01 00
+T 38 00 AF 92 20 02 93 C8 CB 7A 28 08 21 00 00 73
+R 00 00 00 00 00 0D 01 00
+T 46 00 23 72 18 E4 1B 21 02 00 73 23 72 21 00 00
+R 00 00 00 00 00 08 01 00 00 0E 01 00
+T 54 00 5E 23 56 CD E6 00 EB 23 23 7E 07 07 E6 03
+R 00 00 00 00 00 06 00 00
+T 62 00 3C 47 7E 23 E6 3F C5 D5 E5 F5 D6 01 4F 06
+R 00 00 00 00
+T 70 00 00 2A 20 70 CB 01 CB 01 09 5E 23 56 D5 23
+R 00 00 00 00
+T 7E 00 5E 23 56 E1 7E 23 4F E6 C0 47 F1 E6 3F B0
+R 00 00 00 00
+T 8C 00 12 13 13 13 79 CB 6F 28 07 13 13 E6 1F 12
+R 00 00 00 00
+T 9A 00 18 21 FE 02 20 01 2B ED A0 ED A0 ED A0 CB
+R 00 00 00 00
+T A8 00 47 28 28 ED A0 ED A0 CB 4F 28 06 ED A0 ED
+R 00 00 00 00
+T B6 00 A0 1B 1B 1B 1B 1B 1B 1B 1B EB 72 2B 73 EB
+R 00 00 00 00
+T C4 00 E1 D1 C1 10 9B EB 21 00 00 73 23 72 C3
+R 00 00 00 00 00 09 01 00
+T D1 00 95 02 13 13 18 D8 21 00 00 11 00 00 73 23
+R 00 00 00 00 00 09 01 00 00 0C 00 00
+T DF 00 72 CD E6 00 C3 95 02 06 04 AF 21 2B 70 36
+R 00 00 00 00 00 04 00 00
+T ED 00 FF 23 23 23 23 36 F0 23 77 23 23 77 23 77
+R 00 00 00 00
+T FB 00 23 23 10 ED C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+mute
+<REL>
+XL
+H 1 areas 3 global symbols
+M play_sound
+S snd_areas Ref0000
+S .__.ABS. Def0000
+A _CODE size 10 flags 0 addr 0
+S _mute_all Def0000
+T 00 00 06 05 11 0A 00 21 00 00 36 FF 19 10 FB C3
+R 00 00 00 00 02 08 00 00
+T 0E 00 D6 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+nmi
+<REL>
+XL
+H 1 areas 3 global symbols
+M nmi
+S writevdpreg1 Ref0000
+S .__.ABS. Def0000
+A _CODE size 8 flags 0 addr 0
+S _disable_nmi Def0000
+T 00 00 3A C4 73 E6 DF C3 00 00
+R 00 00 00 00 02 08 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+nmi2
+<REL>
+XL
+H 1 areas 3 global symbols
+M nmi
+S writevdpreg1 Ref0000
+S .__.ABS. Def0000
+A _CODE size B flags 0 addr 0
+S _enable_nmi Def0000
+T 00 00 3A C4 73 F6 20 CD 00 00 C3 DC 1F
+R 00 00 00 00 02 08 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+os7
+<REL>
+XL
+H 1 areas 2 global symbols
+M os7
+S .__.ABS. Def0000
+A _CODE size 11 flags 0 addr 0
+S _os7 Def0000
+T 00 00 C1 D1 D9 F1 C1 D1 E1 E5 D5 C5 F5 D9 D5 C5
+R 00 00 00 00
+T 0E 00 D5 D9 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+primpkg0
+<REL>
+XL
+H 1 areas 2 global symbols
+M reflect_vertical
+S .__.ABS. Def0000
+A _CODE size 23 flags 0 addr 0
+S _reflect_vertical Def0000
+T 00 00 DD E5 DD 21 04 00 DD 39 DD 7E 00 DD 5E 01
+R 00 00 00 00
+T 0E 00 DD 56 02 DD 6E 03 DD 66 04 DD 4E 05 DD 46
+R 00 00 00 00
+T 1C 00 06 CD 6A 1F DD E1 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+primpkg1
+<REL>
+XL
+H 1 areas 2 global symbols
+M reflect_horizontal
+S .__.ABS. Def0000
+A _CODE size 23 flags 0 addr 0
+S _reflect_horizontal Def0000
+T 00 00 DD E5 DD 21 04 00 DD 39 DD 7E 00 DD 5E 01
+R 00 00 00 00
+T 0E 00 DD 56 02 DD 6E 03 DD 66 04 DD 4E 05 DD 46
+R 00 00 00 00
+T 1C 00 06 CD 6D 1F DD E1 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+primpkg2
+<REL>
+XL
+H 1 areas 2 global symbols
+M rotate90
+S .__.ABS. Def0000
+A _CODE size 23 flags 0 addr 0
+S _rotate_90 Def0000
+T 00 00 DD E5 DD 21 04 00 DD 39 DD 7E 00 DD 5E 01
+R 00 00 00 00
+T 0E 00 DD 56 02 DD 6E 03 DD 66 04 DD 4E 05 DD 46
+R 00 00 00 00
+T 1C 00 06 CD 70 1F DD E1 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+rle2ram
+<REL>
+XL
+H 1 areas 2 global symbols
+M rle_to_ram
+S .__.ABS. Def0000
+A _CODE size 21 flags 0 addr 0
+S _rle2ram Def0000
+T 00 00 C1 E1 D1 D5 E5 C5 7E 23 FE FF C8 CB 7F 28
+R 00 00 00 00
+T 0E 00 0C E6 7F 3C 47 7E 23 12 13 10 FC 18 EB 3C
+R 00 00 00 00
+T 1C 00 47 ED B0 18 E5
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+rle2vram
+<REL>
+XL
+H 1 areas 3 global symbols
+M rle_to_vram
+S vdpwrite Ref0000
+S .__.ABS. Def0000
+A _CODE size 2B flags 0 addr 0
+S _rle2vram Def0000
+T 00 00 C1 E1 D1 D5 E5 C5 CD 00 00 0E BE 7E 23 FE
+R 00 00 00 00 02 09 00 00
+T 0E 00 FF C8 CB 7F 28 0E E6 7F 3C 47 7E 23 ED 79
+R 00 00 00 00
+T 1C 00 00 00 10 FA 18 E9 3C 47 ED A3 28 E3 C3
+R 00 00 00 00
+T 29 00 24 00
+R 00 00 00 00 00 02 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+scrn_off
+<REL>
+XL
+H 1 areas 3 global symbols
+M screen
+S writevdpreg1 Ref0000
+S .__.ABS. Def0000
+A _CODE size 8 flags 0 addr 0
+S _screen_off Def0000
+T 00 00 3A C4 73 E6 BF C3 00 00
+R 00 00 00 00 02 08 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+scrn_off_dis_nmi
+<REL>
+XL
+H 1 areas 3 global symbols
+M screen
+S writevdpreg1 Ref0000
+S .__.ABS. Def0000
+A _CODE size 8 flags 0 addr 0
+S _screen_off_disable_nmi Def0000
+T 00 00 3A C4 73 E6 9F C3 00 00
+R 00 00 00 00 02 08 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+scrn_on
+<REL>
+XL
+H 1 areas 3 global symbols
+M screen
+S writevdpreg1 Ref0000
+S .__.ABS. Def0000
+A _CODE size 8 flags 0 addr 0
+S _screen_on Def0000
+T 00 00 3A C4 73 F6 40 C3 00 00
+R 00 00 00 00 02 08 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+scrn_on_ena_nmi
+<REL>
+XL
+H 1 areas 3 global symbols
+M screen
+S writevdpreg1 Ref0000
+S .__.ABS. Def0000
+A _CODE size B flags 0 addr 0
+S _screen_on_enable_nmi Def0000
+T 00 00 3A C4 73 E6 60 C3 00 00 C3 DC 1F
+R 00 00 00 00 02 08 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+sndtbl
+<REL>
+XL
+H 1 areas 3 global symbols
+M play_sound
+S .__.ABS. Def0000
+A _CODE size 15 flags 0 addr 0
+S set_snd_table Def0004
+S _set_snd_table Def0000
+T 00 00 D1 E1 E5 D5 06 06 7C B7 20 03 21 10 00 C3
+R 00 00 00 00 00 0D 00 00
+T 0E 00 EE 1F 14 00 2B 70 FF
+R 00 00 00 00 00 04 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+sound
+<REL>
+XL
+H 1 areas 2 global symbols
+M play_sound
+S .__.ABS. Def0000
+A _CODE size 11 flags 0 addr 0
+S _play_sound Def0000
+T 00 00 C1 D1 D5 C5 DD E5 FD E5 43 CD F1 1F FD E1
+R 00 00 00 00
+T 0E 00 DD E1 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+spinner
+<REL>
+XL
+H 1 areas 8 global symbols
+M nmi
+S spinner_enabled Ref0000
+S _spinner_1 Ref0000
+S _spinner_2 Ref0000
+S .__.ABS. Def0000
+A _CODE size 29 flags 0 addr 0
+S _disable_spinner Def0000
+S _reset_spinners Def001F
+S _enable_spinner Def0008
+S _reset_spinner_1 Def0011
+T 00 00 F5 F3 AF 32 00 00 F1 C9 F5 FB F6 FF 32
+R 00 00 00 00 02 06 00 00
+T 0D 00 00 00 F1 C9 F5 AF 32 00 00 F1 C9 F5 AF 32
+R 00 00 00 00 02 02 00 00 02 09 01 00
+T 1B 00 00 00 F1 C9 F5 AF 32 00 00 32 00 00 F1 C9
+R 00 00 00 00 02 02 02 00 02 09 01 00 02 0C 02 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+sprites0
+<REL>
+XL
+H 1 areas 5 global symbols
+M update_sprites
+S sprite_count Ref0000
+S _sprites Ref0000
+S vdpwrite Ref0000
+S .__.ABS. Def0000
+A _CODE size 55 flags 0 addr 0
+S _update_sprites Def0000
+T 00 00 E1 C1 D1 D5 C5 E5 53 58 41 CD 00 00 0E BE
+R 00 00 00 00 02 0C 02 00
+T 0E 00 78 08 06 20 3A 00 00 5F 16 00 21 00 00 19
+R 00 00 00 00 02 07 00 00 02 0D 01 00
+T 1C 00 7E FE F0 30 05 FE C0 D2 48 00 7E 23 ED 79
+R 00 00 00 00 00 0A 00 00
+T 2A 00 7E 23 ED 79 7E 23 ED 79 7E E6 8F 23 ED 79
+R 00 00 00 00
+T 38 00 08 3D FA 54 00 FE 17 20 06 08 7B 32 00 00
+R 00 00 00 00 00 05 00 00 02 0E 00 00
+T 46 00 08 08 7B C6 04 5F 05 C2 18 00 3E D0 ED 79
+R 00 00 00 00 00 0A 00 00
+T 54 00 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+sprites1
+<REL>
+XL
+H 1 areas 4 global symbols
+M clear_sprites
+S sprite_count Ref0000
+S _sprites Ref0000
+S .__.ABS. Def0000
+A _CODE size 18 flags 0 addr 0
+S _clear_sprites Def0000
+T 00 00 C1 E1 E5 C5 5C 26 00 29 29 01 00 00 09 01
+R 00 00 00 00 02 0C 01 00
+T 0E 00 04 00 1D F8 36 CF 09 18 F9 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+sprites2
+<REL>
+XL
+H 2 areas 3 global symbols
+M sprite_tables
+S .__.ABS. Def0000
+A _CODE size 0 flags 0 addr 0
+A _DATA size 81 flags 0 addr 0
+S sprite_count Def0000
+S _sprites Def0001
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+sprites3
+<REL>
+XL
+H 1 areas 5 global symbols
+M update_sprites0
+S sprite_count Ref0000
+S _sprites Ref0000
+S vdpwrite Ref0000
+S .__.ABS. Def0000
+A _CODE size 53 flags 0 addr 0
+S _update_sprites0 Def0000
+T 00 00 E1 D1 C1 C5 D5 E5 41 CD 00 00 0E BE 78 08
+R 00 00 00 00 02 0A 02 00
+T 0E 00 06 20 3A 00 00 5F 16 00 21 00 00 19 7E FE
+R 00 00 00 00 02 05 00 00 02 0B 01 00
+T 1C 00 F0 30 05 FE C0 D2 46 00 7E 23 ED 79 7E 23
+R 00 00 00 00 00 08 00 00
+T 2A 00 ED 79 7E 23 ED 79 7E E6 8F 23 ED 79 08 3D
+R 00 00 00 00
+T 38 00 FA 52 00 FE 17 20 06 08 7B 32 00 00 08 08
+R 00 00 00 00 00 03 00 00 02 0C 00 00
+T 46 00 7B C6 04 5F 05 C2 16 00 3E D0 ED 79 C9
+R 00 00 00 00 00 08 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+ssound
+<REL>
+XL
+H 1 areas 3 global symbols
+M play_sound
+S _snd_table Ref0000
+S .__.ABS. Def0000
+A _CODE size 1D flags 0 addr 0
+S _stop_sound Def0000
+T 00 00 C1 D1 D5 C5 7B 47 21 FE FF 11 04 00 19 10
+R 00 00 00 00 02 09 00 00
+T 0E 00 FD 47 5E 23 56 EB 7E E6 3F B8 20 02 36 FF
+R 00 00 00 00
+T 1C 00 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+utoa
+<REL>
+XL
+H 1 areas 2 global symbols
+M utoa
+S .__.ABS. Def0000
+A _CODE size 44 flags 0 addr 0
+S _utoa Def0009
+T 00 00 AF ED 42 3C 30 FB 3D 09 C9 C1 E1 D1 D9 C1
+R 00 00 00 00
+T 0E 00 C5 D9 D5 E5 C5 01 10 27 CD 00 00 D9 81 D9
+R 00 00 00 00 00 0B 00 00
+T 1C 00 12 13 01 E8 03 CD 00 00 D9 81 D9 12 13 01
+R 00 00 00 00 00 08 00 00
+T 2A 00 64 00 CD 00 00 D9 81 D9 12 13 0E 0A CD
+R 00 00 00 00 00 05 00 00
+T 37 00 00 00 D9 81 D9 12 13 7D D9 81 D9 12 C9
+R 00 00 00 00 00 02 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+vdp0
+<REL>
+XL
+H 1 areas 2 global symbols
+M vdp_out
+S .__.ABS. Def0000
+A _CODE size 9 flags 0 addr 0
+S _vdp_out Def0000
+T 00 00 E1 D1 D5 E5 43 4A C3 D9 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+vdp1
+<REL>
+XL
+H 1 areas 2 global symbols
+M fill_vram
+S .__.ABS. Def0000
+A _CODE size 12 flags 0 addr 0
+S _fill_vram Def0000
+T 00 00 D9 E1 D9 E1 C1 D1 D5 C5 E5 D9 E5 D9 53 58
+R 00 00 00 00
+T 0E 00 79 C3 82 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+vdp2
+<REL>
+XL
+H 1 areas 2 global symbols
+M put_vram
+S .__.ABS. Def0000
+A _CODE size 15 flags 0 addr 0
+S _put_vram Def0000
+T 00 00 D9 E1 D9 D1 E1 C1 C5 E5 D5 D9 E5 D9 79 B7
+R 00 00 00 00
+T 0E 00 CA DF 1F 04 C3 DF 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+vdp3
+<REL>
+XL
+H 1 areas 2 global symbols
+M get_vram
+S .__.ABS. Def0000
+A _CODE size 15 flags 0 addr 0
+S _get_vram Def0000
+T 00 00 D9 E1 D9 D1 E1 C1 C5 E5 D5 D9 E5 D9 79 B7
+R 00 00 00 00
+T 0E 00 CA E2 1F 04 C3 E2 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+vdp4
+<REL>
+XL
+H 1 areas 2 global symbols
+M vdp_out0
+S .__.ABS. Def0000
+A _CODE size 7 flags 0 addr 0
+S _vdp_out0 Def0000
+T 00 00 E1 C1 C5 E5 C3 D9 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+vdp5
+<REL>
+XL
+H 1 areas 2 global symbols
+M fill_vram0
+S .__.ABS. Def0000
+A _CODE size 10 flags 0 addr 0
+S _fill_vram0 Def0000
+T 00 00 D9 E1 D9 E1 D1 C1 C5 D5 E5 D9 E5 D9 79 C3
+R 00 00 00 00
+T 0E 00 82 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+vdpex
+<REL>
+XL
+H 1 areas 3 global symbols
+M put_vram_ex
+S vdpwrite Ref0000
+S .__.ABS. Def0000
+A _CODE size 25 flags 0 addr 0
+S _put_vram_ex Def0000
+T 00 00 E1 D9 D1 CD 00 00 E1 C1 D1 D5 C5 E5 D5 D9
+R 00 00 00 00 02 06 00 00
+T 0E 00 E5 D9 C5 41 0E BE 7E 23 A3 AA ED 79 10 F8
+R 00 00 00 00
+T 1C 00 C1 0E 00 05 C8 F2 10 00 C9
+R 00 00 00 00 00 08 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+vdpname
+<REL>
+XL
+H 1 areas 3 global symbols
+M default_name_table
+S vdpwrite Ref0000
+S .__.ABS. Def0000
+A _CODE size 18 flags 0 addr 0
+S _set_default_name_table Def0000
+T 00 00 E1 D1 D5 E5 CD 00 00 0E BE 16 03 AF ED 79
+R 00 00 00 00 02 07 00 00
+T 0E 00 00 3C C2 0C 00 15 C2 0B 00 C9
+R 00 00 00 00 00 05 00 00 00 09 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+vdppat
+<REL>
+XL
+H 1 areas 3 global symbols
+M put_vram_pattern
+S vdpwrite Ref0000
+S .__.ABS. Def0000
+A _CODE size 27 flags 0 addr 0
+S _put_vram_pattern Def0000
+T 00 00 D9 E1 D1 CD 00 00 D9 E1 C1 D1 D5 C5 E5 D9
+R 00 00 00 00 02 06 00 00
+T 0E 00 D5 E5 D9 53 58 41 0E BE C5 E5 ED A3 00 00
+R 00 00 00 00
+T 1C 00 C2 18 00 E1 C1 1B 7B B2 20 F0 C9
+R 00 00 00 00 00 03 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+vdppat0
+<REL>
+XL
+H 1 areas 3 global symbols
+M put_vram_pattern0
+S vdpwrite Ref0000
+S .__.ABS. Def0000
+A _CODE size 25 flags 0 addr 0
+S _put_vram_pattern0 Def0000
+T 00 00 D9 E1 D1 CD 00 00 D9 E1 D1 C1 C5 D5 E5 D9
+R 00 00 00 00 02 06 00 00
+T 0E 00 D5 E5 D9 41 0E BE C5 E5 ED A3 00 00 C2
+R 00 00 00 00
+T 1B 00 16 00 E1 C1 1B 7B B2 20 F0 C9
+R 00 00 00 00 00 02 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+vdppat1
+<REL>
+XL
+H 1 areas 3 global symbols
+M duplicate_pattern
+S _buffer32 Ref0000
+S .__.ABS. Def0000
+A _CODE size 42 flags 0 addr 0
+S _duplicate_pattern Def0000
+T 00 00 ED 4B C4 73 06 01 C5 0E 80 CD D9 1F 2A
+R 00 00 00 00
+T 0D 00 F8 73 06 80 C5 7D D3 BF 7C D3 BF E5 01
+R 00 00 00 00
+T 1A 00 BE 20 21 00 00 ED B2 E1 11 00 48 19 7D D3
+R 00 00 00 00 02 05 00 00
+T 28 00 BF 7C D3 BF 11 20 B8 19 E5 01 BE 20 21
+R 00 00 00 00
+T 35 00 00 00 ED B3 E1 C1 10 D4 C1 CD D9 1F C9
+R 00 00 00 00 02 02 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+vdpwrite
+<REL>
+XL
+H 1 areas 2 global symbols
+M vdp
+S .__.ABS. Def0000
+A _CODE size 9 flags 0 addr 0
+S vdpwrite Def0000
+T 00 00 0E BF ED 59 CB F2 ED 51 C9
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+<FILE>
+writevdpreg1
+<REL>
+XL
+H 1 areas 2 global symbols
+M vdp
+S .__.ABS. Def0000
+A _CODE size 6 flags 0 addr 0
+S writevdpreg1 Def0000
+T 00 00 4F 06 01 C3 D9 1F
+R 00 00 00 00
+</REL>
+<ADB>
+</ADB>
+</FILE>
+
+</FILES>
+
+</SDCCLIB>

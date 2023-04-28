@@ -1,0 +1,1234 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>CDB File Format</TITLE>
+<META NAME="description" CONTENT="CDB File Format">
+<META NAME="keywords" CONTENT="cdbfileformat">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-15">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdbfileformat.css">
+
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<IMG WIDTH="81" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next_inactive" SRC="nx_grp_g.png"> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev_g.png">   
+<BR>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<P>
+
+<P>
+
+<P>
+<H1 ALIGN="CENTER">CDB File Format</H1>
+<DIV>
+
+<P ALIGN="CENTER"><STRONG>Lenny Story</STRONG></P>
+<P ALIGN="CENTER"><STRONG>2003-03-21</STRONG></P>
+</DIV>
+<DIV ALIGN="CENTER">
+SDCC Development Team
+</DIV>
+<P>
+<DIV ALIGN="CENTER">
+</DIV>
+
+<P>
+<BR>
+
+<H2><A NAME="SECTION00010000000000000000">
+Contents</A>
+</H2>
+<!--Table of Contents-->
+
+<UL>
+<LI><A NAME="tex2html19"
+  HREF="cdbfileformat.html#SECTION00020000000000000000">Overview</A>
+<LI><A NAME="tex2html20"
+  HREF="cdbfileformat.html#SECTION00030000000000000000">Usage</A>
+<LI><A NAME="tex2html21"
+  HREF="cdbfileformat.html#SECTION00040000000000000000">Conventions</A>
+<LI><A NAME="tex2html22"
+  HREF="cdbfileformat.html#SECTION00050000000000000000">Record Formats</A>
+<UL>
+<LI><A NAME="tex2html23"
+  HREF="cdbfileformat.html#SECTION00051000000000000000">Basic Record Format</A>
+<LI><A NAME="tex2html24"
+  HREF="cdbfileformat.html#SECTION00052000000000000000">Module Record</A>
+<LI><A NAME="tex2html25"
+  HREF="cdbfileformat.html#SECTION00053000000000000000">Symbol Records</A>
+<LI><A NAME="tex2html26"
+  HREF="cdbfileformat.html#SECTION00054000000000000000">Type Chain Record</A>
+<LI><A NAME="tex2html27"
+  HREF="cdbfileformat.html#SECTION00055000000000000000">Function Records</A>
+<LI><A NAME="tex2html28"
+  HREF="cdbfileformat.html#SECTION00056000000000000000">Type Records</A>
+<LI><A NAME="tex2html29"
+  HREF="cdbfileformat.html#SECTION00057000000000000000">Type Member</A>
+<LI><A NAME="tex2html30"
+  HREF="cdbfileformat.html#SECTION00058000000000000000">Link Address of Symbol</A>
+<LI><A NAME="tex2html31"
+  HREF="cdbfileformat.html#SECTION00059000000000000000">Linker Symbol End Address Record</A>
+<LI><A NAME="tex2html32"
+  HREF="cdbfileformat.html#SECTION000510000000000000000">Linker ASM Line Record</A>
+<LI><A NAME="tex2html33"
+  HREF="cdbfileformat.html#SECTION000511000000000000000">Linker C-Line Record</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html34"
+  HREF="cdbfileformat.html#SECTION00060000000000000000">Source File Example </A>
+<LI><A NAME="tex2html35"
+  HREF="cdbfileformat.html#SECTION00070000000000000000">CDB File Example</A>
+</UL>
+<!--End of Table of Contents-->
+
+<P>
+
+<H1><A NAME="SECTION00020000000000000000">
+Overview</A>
+</H1>
+
+<P>
+The CDB File is used to record all of the information that describes
+the variables, functions, lines, and memory items. These records provide
+the critical information that allows external utilities to properly
+locate and interpret variables, functions, and types. Development
+tools such as simulators debuggers and profilers use these records
+to analyze and describe the code in terms of the high level language
+in which it was written. The CDB file is therefore the critical link
+to bridging the compiled code image to the source files from which
+it was built.
+
+<P>
+
+<H1><A NAME="SECTION00030000000000000000">
+Usage</A>
+</H1>
+
+<P>
+CDB files are created when the --debug
+option is used. Each source file will have its own CDB file associated
+with it. When the --debug flag is used during the link process,
+the CDB file of the FIRST source module will contain all the records
+from all the source modules linked as well as the linker records.
+
+<P>
+Code and variables that are removed during the optimization phase
+will not be present in the debug file. Images created for debugging
+purposes should always disable as much optimization as possible. The
+following options are critical for the completeness of the resulting
+debugging file.
+
+<UL>
+<LI>[--debug] Mandatory to produce a debugging file. 
+</LI>
+<LI>[--noinduction] Induction processing occurs at the very latest
+stages of compilation. This results in the inability to report the
+location of the resulting variables. Including this option disables
+the loop induction optimization. 
+</LI>
+<LI>[--nooverlay] Overlay variables will not show up in the debug
+file. Including this option will force variables to the data segment.
+</LI>
+</UL>
+<P>
+
+<H1><A NAME="SECTION00040000000000000000">
+Conventions</A>
+</H1>
+
+<P>
+The record examples and grammar shown in this document are displayed
+on multiple lines only for the purposes of readability. The records
+contained within the CDB files are always encoded on a single line. 
+
+<P>
+Record grammar is indicated here using a custom format of the following
+specifications:
+
+<UL>
+<LI>Record Elements are surrounded using the characters `&lt;' and '&gt;'.
+</LI>
+<LI>Alternation is indicated using the `|' character.
+</LI>
+<LI>Non-mandatory items are surrounded using the characters `{` and `}'.
+</LI>
+</UL>
+
+<P>
+
+<H1><A NAME="SECTION00050000000000000000">
+Record Formats</A>
+</H1>
+
+<P>
+
+<H2><A NAME="SECTION00051000000000000000">
+Basic Record Format</A>
+</H2>
+<DL>
+<DT><STRONG>&lt;RecordType&gt;&lt;:&gt;&lt;RecordSpec&gt;</STRONG></DT>
+<DD>&nbsp;
+</DD>
+</DL>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TH ALIGN="CENTER"><B>Type</B></TH>
+<TH ALIGN="LEFT"><B>Description</B></TH>
+<TH ALIGN="LEFT"><B>Form</B></TH>
+</TR>
+<TR><TD ALIGN="CENTER">M</TD>
+<TD ALIGN="LEFT">Module Record</TD>
+<TD ALIGN="LEFT">Compiler</TD>
+</TR>
+<TR><TD ALIGN="CENTER">F</TD>
+<TD ALIGN="LEFT">Function Record</TD>
+<TD ALIGN="LEFT">Compiler</TD>
+</TR>
+<TR><TD ALIGN="CENTER">S</TD>
+<TD ALIGN="LEFT">Symbol Record</TD>
+<TD ALIGN="LEFT">Compiler</TD>
+</TR>
+<TR><TD ALIGN="CENTER">T</TD>
+<TD ALIGN="LEFT">Structure (Complex Type) Record</TD>
+<TD ALIGN="LEFT">Compiler</TD>
+</TR>
+<TR><TD ALIGN="CENTER">L</TD>
+<TD ALIGN="LEFT">Linker Record</TD>
+<TD ALIGN="LEFT">Assembler / Linker</TD>
+</TR>
+</TABLE>
+
+<P>
+All records are ASCII text, with one record per line. The record type
+is the first character, followed by a single colon :.
+Sub types are often included as part of the record specific format.
+
+<P>
+
+<H2><A NAME="SECTION00052000000000000000">
+Module Record</A>
+</H2>
+<DL>
+<DT><STRONG>&lt;M&gt;&lt;:&gt;&lt;Filename&gt;</STRONG></DT>
+<DD>&nbsp;
+</DD>
+</DL>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">M</TD>
+<TD ALIGN="LEFT">Module record type indicator</TD>
+</TR>
+<TR><TD ALIGN="CENTER">Filename</TD>
+<TD ALIGN="LEFT">The filename of the module that this CDB file represents.</TD>
+</TR>
+</TABLE>
+
+<P>
+<B>Purpose</B>
+
+<P>
+The module record is used to define a source module. It is usually
+used at the beginning of each of the module specific CDB files, and
+will occur several times in the final CDB file produced by the linker
+to represent each of the source modules. The location of this record
+within the file does not necessarily indicate the scope of the variables
+that follow. Those variables that have module specific scope have
+an indication encoded within their respective symbol entry.
+
+<P>
+<B>Examples</B>
+
+<P>
+<TT>M:Timer0</TT>&nbsp;
+<BR><TT>M:_bp</TT>
+
+<P>
+
+<H2><A NAME="SECTION00053000000000000000">
+Symbol Records</A>
+</H2>
+
+<P>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">S</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Symbol record type indicator</TD>
+</TR>
+<TR><TD ALIGN="CENTER">G</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Scope is global</TD>
+</TR>
+<TR><TD ALIGN="CENTER">F &lt;Filename&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Scope is file</TD>
+</TR>
+<TR><TD ALIGN="CENTER">L &lt;Function&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Scope is local</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Name&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Symbol name</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Level&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Scope level (see below)</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Block&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Scope block (see below)</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;TypeChain&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Type chain record (see type record below)</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Address Space&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Address space code (see table below)</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;On Stack&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Is this symbol on the stack? Indicates if the next parameter is valid.</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Stack&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>The stack Offsetorelative to the ``bp'' variable. (The libraries
+may have to be recompiled to include the --debug option for this
+variable to appear in the debug file).</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Reg&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>If the address space is 'R', this field indicates the register that
+the symbol is allocated. The register name is in its native form:
+R1, AX, etc.</TD>
+</TR>
+</TABLE>
+<DL>
+<DT><STRONG>&lt;S&gt;&lt;:&gt;</STRONG></DT>
+<DD>
+<BR><B>{ G | F&lt;Filename&gt; | L { &lt;function&gt; | ``-null-``
+}}</B>
+<BR><B>&lt;$&gt;&lt;Name&gt;</B>
+<BR><B>&lt;$&gt;&lt;Level&gt;</B>
+<BR><B>&lt;$&gt;&lt;Block&gt;</B>
+<BR><B>&lt;(&gt;&lt;TypeRecord&gt;&lt;)&gt;</B>
+<BR><B>&lt;,&gt;&lt;AddressSpace&gt;</B>
+<BR><B>&lt;,&gt;&lt;OnStack&gt;</B>
+<BR><B>&lt;,&gt;&lt;Stack&gt;</B>
+<BR><B>&lt;,&gt;&lt;[&gt;&lt;Reg&gt;&lt;,&gt;{&lt;Reg&gt;&lt;,&gt;}&lt;]&gt;</B>
+</DD>
+</DL>
+A symbol record is generated for each named symbol in the source file;
+this includes local, global and parameter symbols. 
+
+<P>
+<B>Blocks and Levels</B>
+
+<P>
+The level &amp; block are used to further scope local variables since
+C allows unique definitions across different scope blocks. When using
+the symbol records, it is always important to include the level and
+block information as part of the identification. It is possible to
+have two symbols that share the same name, but have different scope
+information.
+
+<P>
+The linker address records contain not only the name of the symbol,
+but the Scope information as well, which is instrumental in determining
+the correct instantiation of the symbol.
+
+<P>
+Linker C line records also contain the Scope information (see below).
+
+<P>
+The following code fragment illustrates a simple scope example:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>foo()
+
+<P>
+{
+
+<P>
+int&nbsp;c;&nbsp;/*&nbsp;block&nbsp;#1&nbsp;,&nbsp;level&nbsp;#1&nbsp;*/
+
+<P>
+&nbsp;&nbsp;&nbsp;{
+
+<P>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;c;&nbsp;/*&nbsp;block&nbsp;#2,&nbsp;level&nbsp;#2&nbsp;*/
+
+<P>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...
+
+<P>
+&nbsp;&nbsp;&nbsp;}
+
+<P>
+&nbsp;&nbsp;&nbsp;{
+
+<P>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;c;&nbsp;/*&nbsp;block&nbsp;#3&nbsp;,&nbsp;level&nbsp;#2&nbsp;*/
+
+<P>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...
+
+<P>
+&nbsp;&nbsp;&nbsp;}
+
+<P>
+}
+</DD>
+</DL><TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">A</TD>
+<TD ALIGN="LEFT">External stack</TD>
+</TR>
+<TR><TD ALIGN="CENTER">B</TD>
+<TD ALIGN="LEFT">Internal stack</TD>
+</TR>
+<TR><TD ALIGN="CENTER">C</TD>
+<TD ALIGN="LEFT">Code</TD>
+</TR>
+<TR><TD ALIGN="CENTER">D</TD>
+<TD ALIGN="LEFT">Code / static segment</TD>
+</TR>
+<TR><TD ALIGN="CENTER">E</TD>
+<TD ALIGN="LEFT">Internal ram (lower 128) bytes</TD>
+</TR>
+<TR><TD ALIGN="CENTER">F</TD>
+<TD ALIGN="LEFT">External ram</TD>
+</TR>
+<TR><TD ALIGN="CENTER">G</TD>
+<TD ALIGN="LEFT">Internal ram</TD>
+</TR>
+<TR><TD ALIGN="CENTER">H</TD>
+<TD ALIGN="LEFT">Bit addressable</TD>
+</TR>
+<TR><TD ALIGN="CENTER">I</TD>
+<TD ALIGN="LEFT">SFR space</TD>
+</TR>
+<TR><TD ALIGN="CENTER">J</TD>
+<TD ALIGN="LEFT">SBIT space</TD>
+</TR>
+<TR><TD ALIGN="CENTER">R</TD>
+<TD ALIGN="LEFT">Register space</TD>
+</TR>
+<TR><TD ALIGN="CENTER">Z</TD>
+<TD ALIGN="LEFT">Used for function records, or any undefined space code</TD>
+</TR>
+</TABLE>
+
+<P>
+
+<H2><A NAME="SECTION00054000000000000000">
+Type Chain Record</A>
+</H2>
+<DL>
+<DT><STRONG>&lt;{&gt;&lt;Size&gt;&lt;}&gt;</STRONG></DT>
+<DD><B>&lt;DCLType&gt; &lt;,&gt; {&lt;DCLType&gt; &lt;,&gt;} &lt;:&gt; &lt;Sign&gt;</B>
+</DD>
+</DL>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">&lt;Size&gt;</TD>
+<TD ALIGN="LEFT">The size of the item in decimal.</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;DCLType&gt;</TD>
+<TD ALIGN="LEFT">The type encoded using the table below.</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Sign&gt;</TD>
+<TD ALIGN="LEFT">The sign of the item. Encoded as 'U' or 'S'.</TD>
+</TR>
+</TABLE>
+
+<P>
+<B>Purpose</B>
+
+<P>
+The C programming language allows arbitrarily complex type constructions.
+Because of this, the CDB file type designations are organized as a
+list of basic primitive types.
+
+<P>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">DA &lt;n&gt;</TD>
+<TD ALIGN="LEFT">Array of n elements</TD>
+</TR>
+<TR><TD ALIGN="CENTER">DF</TD>
+<TD ALIGN="LEFT">Function</TD>
+</TR>
+<TR><TD ALIGN="CENTER">DG</TD>
+<TD ALIGN="LEFT">Generic pointer</TD>
+</TR>
+<TR><TD ALIGN="CENTER">DC</TD>
+<TD ALIGN="LEFT">Code pointer</TD>
+</TR>
+<TR><TD ALIGN="CENTER">DX</TD>
+<TD ALIGN="LEFT">External ram pointer</TD>
+</TR>
+<TR><TD ALIGN="CENTER">DD</TD>
+<TD ALIGN="LEFT">Internal ram pointer</TD>
+</TR>
+<TR><TD ALIGN="CENTER">DP</TD>
+<TD ALIGN="LEFT">Paged pointer</TD>
+</TR>
+<TR><TD ALIGN="CENTER">DI</TD>
+<TD ALIGN="LEFT">Upper 128 byte pointer</TD>
+</TR>
+<TR><TD ALIGN="CENTER">SL</TD>
+<TD ALIGN="LEFT">long</TD>
+</TR>
+<TR><TD ALIGN="CENTER">SI</TD>
+<TD ALIGN="LEFT">int</TD>
+</TR>
+<TR><TD ALIGN="CENTER">SC</TD>
+<TD ALIGN="LEFT">char</TD>
+</TR>
+<TR><TD ALIGN="CENTER">SS</TD>
+<TD ALIGN="LEFT">short</TD>
+</TR>
+<TR><TD ALIGN="CENTER">SV</TD>
+<TD ALIGN="LEFT">void</TD>
+</TR>
+<TR><TD ALIGN="CENTER">SF</TD>
+<TD ALIGN="LEFT">float</TD>
+</TR>
+<TR><TD ALIGN="CENTER">ST &lt;name&gt;</TD>
+<TD ALIGN="LEFT">Structure of name &lt;name&gt;</TD>
+</TR>
+<TR><TD ALIGN="CENTER">SX</TD>
+<TD ALIGN="LEFT">sbit</TD>
+</TR>
+<TR><TD ALIGN="CENTER">SB &lt;n&gt;</TD>
+<TD ALIGN="LEFT">Bit field of &lt;n&gt; bits</TD>
+</TR>
+</TABLE>
+
+<P>
+<B>Examples</B>
+
+<P>
+<TT><FONT SIZE="-1">S:LcheckSerialPort$pstBuffer$1$1({3}DG,STTTinyBuffer:S),R,0,0,[r2,r3,r4]</FONT></TT>&nbsp;
+<BR><TT><FONT SIZE="-1">S:Ltimer0LoadExtended$count$1$1({2}SI:S),B,1,-4</FONT></TT>&nbsp;
+<BR><TT><FONT SIZE="-1">S:G$T2CON_7$0$0({1}SX:S),J,0,0</FONT></TT>&nbsp;
+<BR><TT><FONT SIZE="-1">S:LAdcInitialize$a$1$1({2}SI:S),B,1,1</FONT></TT>&nbsp;
+<BR><TT><FONT SIZE="-1">S:G$ScanCount$0$0({2}SI:S),F,0,0</FONT></TT>
+<P>
+
+
+<P>
+
+<H2><A NAME="SECTION00055000000000000000">
+Function Records</A>
+</H2>
+<DL>
+<DT><STRONG>&lt;F&gt;&lt;:&gt;</STRONG></DT>
+<DD>
+<BR><B>{ G | F&lt;Filename&gt; | L { &lt;function&gt; | ``-null-``
+}}</B>
+<BR><B>&lt;$&gt;&lt;Name&gt;</B>
+<BR><B>&lt;$&gt;&lt;Level&gt;</B>
+<BR><B>&lt;$&gt;&lt;Block&gt;</B>
+<BR><B>&lt;(&gt;&lt;TypeRecord&gt;&lt;)&gt;</B>
+<BR><B>&lt;,&gt;&lt;AddressSpace&gt;</B>
+<BR><B>&lt;,&gt;&lt;OnStack&gt;</B>
+<BR><B>&lt;,&gt;&lt;Stack&gt;</B>
+<BR><B>&lt;,&gt;&lt;Interrupt&gt;</B>
+<BR><B>&lt;,&gt;&lt;Interrupt Num&gt;</B>
+<BR><B>&lt;,&gt;&lt;Register Bank&gt;</B>
+</DD>
+</DL>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">F</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Symbol record type indicator</TD>
+</TR>
+<TR><TD ALIGN="CENTER">G</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Scope is global</TD>
+</TR>
+<TR><TD ALIGN="CENTER">F &lt;Filename&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Scope is file</TD>
+</TR>
+<TR><TD ALIGN="CENTER">L &lt;Function&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Scope is local</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Name&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Symbol name</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Level&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Scope level (see below)</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Block&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Scope block (see below)</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;TypeChain&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Type chain record (see type record below)</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Address Space&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Address space code &lt;see table below&gt;</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;On Stack&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Indicates if this is a stack variable</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Stack&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>If stack variable, the stack offset relative to the ``bp'' variable.
+(Libraries will have to be compiled using the --debug option for
+this to be available)</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Is Interrupt&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Indicates if this is an interrupt handler.</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Interrupt Num&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>If interrupt handler, this indicates the interrupt number.</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Register Bank&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>If interrupt handler, this ist he register bank number.</TD>
+</TR>
+</TABLE>
+
+<P>
+<B>Purpose</B>
+
+<P>
+The Function record defines any Source File function. Its construction
+is the same as the symbol record, with the addition of 3 extra parameters
+for indicating interrupt handlers.
+
+<P>
+<B>Example</B>
+
+<P>
+<TT>F:G$main$0$0({2}DF,SV:S),C,0,0,0,0,0</TT>&nbsp;
+<BR><TT>F:G$SioISR$0$0({2}DF,SV:S),Z,0,0,1,4,0</TT>
+
+<P>
+
+<H2><A NAME="SECTION00056000000000000000">
+Type Records</A>
+</H2>
+<DL>
+<DT><STRONG>&lt;T&gt;&lt;:&gt;</STRONG></DT>
+<DD>
+<BR><B>&lt;F&gt;&lt;Filename&gt;&lt;$&gt;</B>
+<BR><B>&lt;Name&gt;</B>
+<BR><B>&lt;[&gt;&lt;TypeMember&gt; {&lt;TypeMember&gt;} &lt;]&gt;</B>
+</DD>
+</DL>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">T</TD>
+<TD ALIGN="LEFT">Type record type indicator</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Filename&gt;</TD>
+<TD ALIGN="LEFT">The filename where this type is declared</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Name&gt;</TD>
+<TD ALIGN="LEFT">The name of this type</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;TypeMember&gt;</TD>
+<TD ALIGN="LEFT">(see below)</TD>
+</TR>
+</TABLE>
+
+<P>
+
+<H2><A NAME="SECTION00057000000000000000">
+Type Member</A>
+</H2>
+<DL>
+<DT><STRONG>&lt;(&gt;&lt;{&gt;&lt;Offset&gt;&lt;}&gt;&lt;SymbolRecord&gt;&lt;)&gt;</STRONG></DT>
+<DD>&nbsp;
+</DD>
+</DL>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">&lt;Offset&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>The offset of this type member in decimal.</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;SymbolRecord&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>A complete symbol record describing this Member. (See ``Symbol
+Records'' above.</TD>
+</TR>
+</TABLE>
+
+<P>
+<B>Purpose</B>
+
+<P>
+Type records describe the complex types within the source file. These
+include structure and union types.
+
+<P>
+<B>Examples</B>
+
+<P>
+<TT>T:Fcmdas$TTinyBuffer[</TT>&nbsp;
+<BR><TT>({0}S:S$pNext$0$0({3}DG,STTTinyBuffer:S),Z,0,0)</TT>&nbsp;
+<BR><TT>({3}S:S$length$0$0({1}SC:U),Z,0,0)</TT>&nbsp;
+<BR><TT>({4}S:S$maxLength$0$0({1}SC:U),Z,0,0)</TT>&nbsp;
+<BR><TT>({5}S:S$rindex$0$0({1}SC:U),Z,0,0)</TT>&nbsp;
+<BR><TT>({6}S:S$windex$0$0({1}SC:U),Z,0,0)</TT>&nbsp;
+<BR><TT>({7}S:S$buffer$0$0({64}DA64,SC:U),Z,0,0)</TT>&nbsp;
+<BR><TT>]</TT>
+
+<P>
+
+<H2><A NAME="SECTION00058000000000000000">
+Link Address of Symbol</A>
+</H2>
+<DL>
+<DT><STRONG>&lt;L&gt;&lt;:&gt;</STRONG></DT>
+<DD>
+<BR><B>{ &lt;G&gt; | F&lt;filename&gt; | L&lt;function&gt; } </B>
+<BR><B>&lt;$&gt;&lt;name&gt;</B>
+<BR><B>&lt;$&gt;&lt;level&gt;</B>
+<BR><B>&lt;$&gt;&lt;block&gt;</B>
+<BR><B>&lt;:&gt;&lt;address&gt;</B>
+</DD>
+</DL>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">L</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Link record type indicator</TD>
+</TR>
+<TR><TD ALIGN="CENTER">G</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Symbol has file scope.</TD>
+</TR>
+<TR><TD ALIGN="CENTER">F &lt;Filename&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Symbol has file scope.</TD>
+</TR>
+<TR><TD ALIGN="CENTER">L &lt;Function&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Symbol has function scope</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Name&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Symbol name</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Level&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Symbol level</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Block&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Symbol block</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Address&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Symbol address in hex, relative to the address space code, in the
+matching symbol record.</TD>
+</TR>
+</TABLE>
+
+<P>
+<B>Purpose</B>
+
+<P>
+The link address record is used to bind a memory location to a symbol
+record.
+
+<P>
+<B>Example</B>
+
+<P>
+<TT>L:G$P0$0$0:80</TT>&nbsp;
+<BR><TT>L:G$ScanCount$0$0:0</TT>&nbsp;
+<BR><TT>L:Fcmdas$_str_0$0$0:195</TT>
+
+<P>
+
+<H2><A NAME="SECTION00059000000000000000">
+Linker Symbol End Address Record</A>
+</H2>
+<DL>
+<DT><STRONG>&lt;L&gt;&lt;:&gt;&lt;X&gt;</STRONG></DT>
+<DD>
+<BR><B>{ &lt;G&gt; | F&lt;filename&gt; | L&lt;functionName&gt; }</B>
+<BR><B>&lt;$&gt;&lt;name&gt;</B>
+<BR><B>&lt;$&gt;&lt;level&gt;</B>
+<BR><B>&lt;$&gt;&lt;block&gt;</B>
+<BR><B>&lt;:&gt;&lt;Address&gt;</B>
+</DD>
+</DL>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">L</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Link record type indicator</TD>
+</TR>
+<TR><TD ALIGN="CENTER">X</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Link end address sub type indicator</TD>
+</TR>
+<TR><TD ALIGN="CENTER">G</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Symbol has file scope.</TD>
+</TR>
+<TR><TD ALIGN="CENTER">F &lt;Filename&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Symbol has file scope.</TD>
+</TR>
+<TR><TD ALIGN="CENTER">L &lt;Function&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Symbol has function scope.</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Name&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Symbol name</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Level&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Symbol level</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Block&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Symbol block</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Address&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Symbol end address in hex, relative to the address space code contained
+in the matching symbol record.</TD>
+</TR>
+</TABLE>
+
+<P>
+<B>Purpose</B>
+
+<P>
+The Linker Symbol end address record is primarily used to indicate
+the Ending address of functions. This is because function records
+do not contain a size value, as symbol records do.
+
+<P>
+<B>Example</B>
+
+<P>
+<TT>L:XG$sysClearError$0$0:194</TT>&nbsp;
+<BR><TT>L:XG$SioISR$0$0:A09</TT>
+
+<P>
+
+<H2><A NAME="SECTION000510000000000000000">
+Linker ASM Line Record</A>
+</H2>
+<DL>
+<DT><STRONG>&lt;L&gt;</STRONG></DT>
+<DD><B>&lt;:&gt; &lt;A&gt;</B>
+<BR><B>&lt;$&gt;&lt;Filename&gt;</B>
+<BR><B>&lt;$&gt;&lt;Line&gt;</B>
+<BR><B>&lt;:&gt;&lt;EndAddress&gt;</B>
+</DD>
+</DL>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">L</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Link record type indicator</TD>
+</TR>
+<TR><TD ALIGN="CENTER">A</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Link assembly file line record sub type indicator</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Filename&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Filename of the assembly file.</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Line&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Line number in the above filename.{}These numbers start at 1 (not
+0).</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;EndAdress&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>End address</TD>
+</TR>
+</TABLE>
+
+<P>
+<B>Purpose</B>
+
+<P>
+The linker Asm Line record is used to bind the execution address with
+a source file and line number.
+
+<P>
+<B>Example</B>
+
+<P>
+<TT>L:A$TinyBuffer$2320:A13</TT>&nbsp;
+<BR><TT>L:A$max1270$391:CA4</TT>
+
+<P>
+
+<H2><A NAME="SECTION000511000000000000000">
+Linker C-Line Record</A>
+</H2>
+<DL>
+<DT><STRONG>&lt;L&gt;</STRONG></DT>
+<DD><B>&lt;:&gt; &lt;C&gt;</B>
+<BR><B>&lt;$&gt;&lt;Filename&gt;</B>
+<BR><B>&lt;$&gt;&lt;Line&gt;</B>
+<BR><B>&lt;$&gt;&lt;Level&gt;</B>
+<BR><B>&lt;$&gt;&lt;Block&gt;</B>
+<BR><B>&lt;:&gt;&lt;EndAddress&gt;</B>
+</DD>
+</DL>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">L</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Link record type indicator</TD>
+</TR>
+<TR><TD ALIGN="CENTER">C</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Link assembly file line record sub type indicator</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Filename&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Filename of the assembly file.</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Line&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Line number in the above filename. These numbers start at 1 (not 0).</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Level&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Current level at this line and address.</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;Block&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>Current block at this line and address.</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&lt;EndAddress&gt;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=281>End address</TD>
+</TR>
+</TABLE>
+
+<P>
+<B>Purpose</B>
+
+<P>
+The linker C-Line record is used to bind the execution address with
+a source file, line number and the level, block information.
+
+<P>
+The following is an example source module with its lines showing the
+corresponding C-Line Records. You will notice in this example that
+there are no line entries for lines 18, 19. This is because the code
+was optimized and removed.
+
+<P>
+<TABLE CELLPADDING=3>
+<TR><TD ALIGN="CENTER">01</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="CENTER">02</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT"><TT>struct complex</TT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">03</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT"><TT>{</TT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">04</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT"><TT>&nbsp;&nbsp;int count;</TT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">05</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT"><TT>&nbsp;&nbsp;int Max;</TT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">06</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT"><TT>};</TT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">07</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="CENTER">08</TD>
+<TD ALIGN="LEFT">L:C$vars.c$8$0$0:38</TD>
+<TD ALIGN="LEFT"><TT>void main(void)</TT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">09</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT"><TT>{</TT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">10</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT"><TT>&nbsp;&nbsp;int iterA;</TT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">11</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT"><TT>&nbsp;&nbsp;int iterB;</TT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">12</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT"><TT>&nbsp;&nbsp;struct complex myStruct;</TT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">13</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="CENTER">14</TD>
+<TD ALIGN="LEFT">L:C$vars.c$14$1$1:C1</TD>
+<TD ALIGN="LEFT"><TT>&nbsp;&nbsp;for(iterA = 0; iterA &lt; 10; iterA++)</TT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">15</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT"><TT>&nbsp;&nbsp;{</TT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">16</TD>
+<TD ALIGN="LEFT">L:C$vars.c$16$2$2:B9</TD>
+<TD ALIGN="LEFT"><TT>&nbsp;&nbsp;&nbsp;&nbsp;for(iterB = 0; iterB &lt; 10; iterB++)</TT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">17</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT"><TT>&nbsp;&nbsp;&nbsp;&nbsp;{</TT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">18</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT"><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int iterA = 6 + iterB;</TT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">19</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT"><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iterA++;</TT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">20</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="CENTER">21</TD>
+<TD ALIGN="LEFT">L:C$vars.c$21$1$1:69</TD>
+<TD ALIGN="LEFT"><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myStruct.count++;</TT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">22</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="CENTER">23</TD>
+<TD ALIGN="LEFT">L:C$vars.c$23$3$3:83</TD>
+<TD ALIGN="LEFT"><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(myStruct.count &gt; myStruct.Max)</TT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">24</TD>
+<TD ALIGN="LEFT">L:C$vars.c$24$3$3:A3</TD>
+<TD ALIGN="LEFT"><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myStruct.Max = mystruct.count;</TT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">25</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT"><TT>&nbsp;&nbsp;&nbsp;&nbsp;}</TT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">26</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT"><TT>&nbsp;&nbsp;}</TT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">27</TD>
+<TD ALIGN="LEFT">L:C$vars.c$27$1$1:CE</TD>
+<TD ALIGN="LEFT"><TT>}</TT></TD>
+</TR>
+</TABLE>
+
+<P>
+<B>Example</B>
+
+<P>
+<TT>L:C$max1270.c$35$1$1:CA9</TT>&nbsp;
+<BR><TT>L:C$Timer0.c$20$1$1:D9D</TT>
+
+<P>
+
+<H1><A NAME="SECTION00060000000000000000">
+Source File Example </A>
+</H1>
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>sfr&nbsp;IM&nbsp;=&nbsp;0x90;
+
+<P>
+struct&nbsp;complex
+
+<P>
+{
+
+<P>
+&nbsp;&nbsp;int&nbsp;count;
+
+<P>
+&nbsp;&nbsp;int&nbsp;Max;
+
+<P>
+};
+
+<P>
+void&nbsp;main(void)
+
+<P>
+{
+
+<P>
+&nbsp;&nbsp;int&nbsp;iterA;
+
+<P>
+&nbsp;&nbsp;int&nbsp;iterB;
+
+<P>
+&nbsp;&nbsp;struct&nbsp;complex&nbsp;myStruct;
+
+<P>
+&nbsp;&nbsp;for(iterA&nbsp;=&nbsp;0;&nbsp;iterA&nbsp;&lt;&nbsp;10;&nbsp;iterA++)
+
+<P>
+&nbsp;&nbsp;{
+
+<P>
+&nbsp;&nbsp;&nbsp;&nbsp;for(iterB&nbsp;=&nbsp;0;&nbsp;iterB&nbsp;&lt;&nbsp;10;&nbsp;iterB++)&nbsp;
+
+<P>
+&nbsp;&nbsp;&nbsp;&nbsp;{
+
+<P>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;iterA&nbsp;=&nbsp;6&nbsp;+&nbsp;iterB;
+
+<P>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iterA++;
+
+<P>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myStruct.count++;
+
+<P>
+&nbsp;
+
+<P>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IM&nbsp;=&nbsp;iterA;
+
+<P>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(myStruct.count&nbsp;&gt;&nbsp;myStruct.Max)
+
+<P>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myStruct.Max&nbsp;=&nbsp;myStruct.count;
+
+<P>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+<P>
+&nbsp;&nbsp;}
+
+<P>
+}
+</DD>
+</DL>
+<P>
+
+<H1><A NAME="SECTION00070000000000000000">
+CDB File Example</A>
+</H1>
+
+<P>
+<TT>M:vars</TT>&nbsp;
+<BR><TT>F:G$main$0$0({2}DF,SV:S),C,0,0,0,0,0</TT>&nbsp;
+<BR><TT>T:Fvars$complex[({0}S:S$count$0$0({2}SI:S),Z,0,0)({2}S:S$Max$0$0({2}SI:S),Z,0,0)]</TT>&nbsp;
+<BR><TT>S:Lmain$iterA$1$1({2}SI:S),R,0,0,[r0,r1]</TT>&nbsp;
+<BR><TT>S:Lmain$iterB$1$1({2}SI:S),R,0,0,[r4,r5]</TT>&nbsp;
+<BR><TT>S:Lmain$myStruct$1$1({4}STcomplex:S),E,0,0</TT>&nbsp;
+<BR><TT>S:Lmain$iterA$3$3({2}SI:S),R,0,0,[r6,r7]</TT>&nbsp;
+<BR><TT>S:G$IM$0$0({1}SC:U),I,0,0</TT>&nbsp;
+<BR><TT>S:G$main$0$0({2}DF,SV:S),C,0,0</TT>&nbsp;
+<BR><TT>L:G$IM$0$0:90</TT>&nbsp;
+<BR><TT>L:Lmain$myStruct$1$1:8</TT>&nbsp;
+<BR><TT>L:A$vars$64:0</TT>&nbsp;
+<BR><TT>L:A$vars$65:3</TT>&nbsp;
+<BR><TT>L:A$vars$67:B</TT>&nbsp;
+<BR><TT>L:A$vars$69:13</TT>&nbsp;
+<BR><TT>L:A$vars$71:1B</TT>&nbsp;
+<BR><TT>L:A$vars$73:23</TT>&nbsp;
+<BR><TT>L:A$vars$75:2B</TT>&nbsp;
+<BR><TT>L:A$vars$129:33</TT>&nbsp;
+<BR><TT>L:A$vars$131:36</TT>&nbsp;
+<BR><TT>L:A$vars$158:38</TT>&nbsp;
+<BR><TT>L:C$vars.c$10$0$0:38</TT>&nbsp;
+<BR><TT>L:G$main$0$0:38</TT>&nbsp;
+<BR><TT>L:A$vars$159:3A</TT>&nbsp;
+<BR><TT>L:A$vars$163:3C</TT>&nbsp;
+<BR><TT>L:A$vars$164:3D</TT>&nbsp;
+<BR><TT>L:A$vars$165:3E</TT>&nbsp;
+<BR><TT>L:A$vars$166:40</TT>&nbsp;
+<BR><TT>L:A$vars$167:41</TT>&nbsp;
+<BR><TT>L:A$vars$168:43</TT>&nbsp;
+<BR><TT>L:A$vars$170:45</TT>&nbsp;
+<BR><TT>L:A$vars$171:47</TT>&nbsp;
+<BR><TT>L:A$vars$176:4A</TT>&nbsp;
+<BR><TT>L:A$vars$177:4C</TT>&nbsp;
+<BR><TT>L:A$vars$181:4E</TT>&nbsp;
+<BR><TT>L:A$vars$182:4F</TT>&nbsp;
+<BR><TT>L:A$vars$183:50</TT>&nbsp;
+<BR><TT>L:A$vars$184:52</TT>&nbsp;
+<BR><TT>L:A$vars$185:53</TT>&nbsp;
+<BR><TT>L:A$vars$186:55</TT>&nbsp;
+<BR><TT>L:A$vars$191:57</TT>&nbsp;
+<BR><TT>L:A$vars$196:59</TT>&nbsp;
+<BR><TT>L:C$vars.c$20$3$3:59</TT>&nbsp;
+<BR><TT>L:A$vars$197:5B</TT>&nbsp;
+<BR><TT>L:A$vars$198:5D</TT>&nbsp;
+<BR><TT>L:A$vars$200:5E</TT>&nbsp;
+<BR><TT>L:A$vars$201:5F</TT>&nbsp;
+<BR><TT>L:A$vars$202:61</TT>&nbsp;
+<BR><TT>L:A$vars$207:62</TT>&nbsp;
+<BR><TT>L:C$vars.c$21$3$3:62</TT>&nbsp;
+<BR><TT>L:A$vars$208:63</TT>&nbsp;
+<BR><TT>L:A$vars$209:66</TT>&nbsp;
+<BR><TT>L:A$vars$216:67</TT>&nbsp;
+<BR><TT>L:C$vars.c$23$3$3:67</TT>&nbsp;
+<BR><TT>L:A$vars$217:69</TT>&nbsp;
+<BR><TT>L:A$vars$220:6B</TT>&nbsp;
+<BR><TT>L:A$vars$221:6C</TT>&nbsp;
+<BR><TT>L:A$vars$222:6F</TT>&nbsp;
+<BR><TT>L:A$vars$227:70</TT>&nbsp;
+<BR><TT>L:A$vars$228:72</TT>&nbsp;
+<BR><TT>L:A$vars$232:74</TT>&nbsp;
+<BR><TT>L:C$vars.c$25$3$3:74</TT>&nbsp;
+<BR><TT>L:A$vars$238:76</TT>&nbsp;
+<BR><TT>L:C$vars.c$27$3$3:76</TT>&nbsp;
+<BR><TT>L:A$vars$239:77</TT>&nbsp;
+<BR><TT>L:A$vars$240:79</TT>&nbsp;
+<BR><TT>L:A$vars$241:7A</TT>&nbsp;
+<BR><TT>L:A$vars$242:7C</TT>&nbsp;
+<BR><TT>L:A$vars$243:7E</TT>&nbsp;
+<BR><TT>L:A$vars$244:80</TT>&nbsp;
+<BR><TT>L:A$vars$245:83</TT>&nbsp;
+<BR><TT>L:A$vars$248:85</TT>&nbsp;
+<BR><TT>L:A$vars$256:87</TT>&nbsp;
+<BR><TT>L:C$vars.c$28$3$3:87</TT>&nbsp;
+<BR><TT>L:A$vars$257:8A</TT>&nbsp;
+<BR><TT>L:A$vars$263:8D</TT>&nbsp;
+<BR><TT>L:C$vars.c$18$2$2:8D</TT>&nbsp;
+<BR><TT>L:A$vars$264:8E</TT>&nbsp;
+<BR><TT>L:A$vars$265:91</TT>&nbsp;
+<BR><TT>L:A$vars$268:92</TT>&nbsp;
+<BR><TT>L:A$vars$274:94</TT>&nbsp;
+<BR><TT>L:C$vars.c$16$1$1:94</TT>&nbsp;
+<BR><TT>L:A$vars$275:95</TT>&nbsp;
+<BR><TT>L:A$vars$276:98</TT>&nbsp;
+<BR><TT>L:A$vars$278:99</TT>&nbsp;
+<BR><TT>L:A$vars$282:9C</TT>&nbsp;
+<BR><TT>L:C$vars.c$31$1$1:9C</TT>&nbsp;
+<BR><TT>L:XG$main$0$0:9C</TT>&nbsp;
+<BR><TT>L:A$vars$84:A1</TT>&nbsp;
+<BR><TT>L:A$vars$85:A4</TT>&nbsp;
+<BR><TT>L:A$vars$86:A7</TT>&nbsp;
+<BR><TT>L:A$vars$87:A9</TT>&nbsp;
+<BR><TT>L:A$vars$88:AB</TT>&nbsp;
+<BR><TT>L:A$vars$91:AE</TT>&nbsp;
+<BR><TT>L:A$vars$92:B0</TT>&nbsp;
+<BR><TT>L:A$vars$93:B2</TT>&nbsp;
+<BR><TT>L:A$vars$94:B4</TT>&nbsp;
+<BR><TT>L:A$vars$95:B6</TT>&nbsp;
+<BR><TT>L:A$vars$96:B8</TT>&nbsp;
+<BR><TT>L:A$vars$97:B9</TT>&nbsp;
+<BR><TT>L:A$vars$98:BB</TT>&nbsp;
+<BR><TT>L:A$vars$99:BD</TT>&nbsp;
+<BR><TT>L:A$vars$100:BE</TT>&nbsp;
+<BR><TT>L:A$vars$101:C1</TT>&nbsp;
+<BR><TT>L:A$vars$102:C3</TT>&nbsp;
+<BR><TT>L:A$vars$103:C6</TT>&nbsp;
+<BR><TT>L:A$vars$104:C7</TT>&nbsp;
+<BR><TT>L:A$vars$105:C8</TT>&nbsp;
+<BR><TT>L:A$vars$106:C9</TT>&nbsp;
+<BR><TT>L:A$vars$107:CA</TT>&nbsp;
+<BR><TT>L:A$vars$108:CB</TT>&nbsp;
+<BR><TT>L:A$vars$109:CE</TT>&nbsp;
+<BR><TT>L:A$vars$110:D0</TT>&nbsp;
+<BR><TT>L:A$vars$111:D2</TT>&nbsp;
+<BR><TT>L:A$vars$112:D5</TT>&nbsp;
+<BR><TT>L:A$vars$113:D7</TT>&nbsp;
+<BR><TT>L:A$vars$114:DA</TT>&nbsp;
+<BR><TT>L:A$vars$118:DD</TT>
+<HR>
+<!--Navigation Panel-->
+<IMG WIDTH="81" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next_inactive" SRC="nx_grp_g.png"> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev_g.png">   
+<BR>
+<!--End of Navigation Panel-->
+<ADDRESS>
+
+2010-10-31
+</ADDRESS>
+</BODY>
+</HTML>

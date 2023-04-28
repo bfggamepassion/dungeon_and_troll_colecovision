@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>4.6 The PIC16 port</TITLE>
+<META NAME="description" CONTENT="4.6 The PIC16 port">
+<META NAME="keywords" CONTENT="sdccman">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="sdccman.css">
+
+<LINK REL="previous" HREF="node110.html">
+<LINK REL="up" HREF="node102.html">
+<LINK REL="next" HREF="node120.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2511"
+  HREF="node120.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2505"
+  HREF="node102.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2501"
+  HREF="node118.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2507"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2509"
+  HREF="node191.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2512"
+  HREF="node120.html">4.6.1 Global Options</A>
+<B> Up:</B> <A NAME="tex2html2506"
+  HREF="node102.html">4. Notes on supported</A>
+<B> Previous:</B> <A NAME="tex2html2502"
+  HREF="node118.html">4.5.8 Known Bugs</A>
+ &nbsp; <B>  <A NAME="tex2html2508"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2510"
+  HREF="node191.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00560000000000000000"></A><A NAME="3020"></A>
+<BR>
+4.6 The PIC16 port
+</H1>
+
+<P>
+The PIC16 port adds support for Microchip<A NAME="3021"></A><IMG
+ WIDTH="22" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$^{\text{TM}}$">
+PIC<A NAME="3023"></A><IMG
+ WIDTH="22" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$^{\text{TM}}$"> MCUs with 16 bit wide instructions.
+Currently this family of microcontrollers contains the PIC18Fxxx and
+PIC18Fxxxx; devices supported by the port include:
+
+<P>
+18F: 242, 248, 252, 258, 442, 448, 452, 458
+
+<P>
+18F: 1220, 1320, 13k50, 14k50
+
+<P>
+18F: 2220, 2221, 2320, 2321, 2331, 23k20
+
+<P>
+18F: 2410, 2420, 2423, 2431, 2450, 2455, 2480, 24j10, 24j50, 24k20
+
+<P>
+18F: 2510, 2515, 2520, 2523, 2525, 2550, 2580, 2585, 25j10, 25j50,
+25k20
+
+<P>
+18F: 2610, 2620, 2680, 2682, 2685, 26j50, 26k20
+
+<P>
+18F: 4220, 4221, 4320, 4321, 4331, 43k20
+
+<P>
+18F: 4410, 4420, 4423, 4431, 4450, 4455, 4480, 44j10, 44j50, 44k20
+
+<P>
+18F: 4510, 4515, 4520, 4523, 4525, 4550, 4580, 4585, 45j10, 45j50,
+45k20
+
+<P>
+18F: 4610, 4620, 4680, 4682, 4685, 46j50, 46k20
+
+<P>
+18F: 6520, 6527, 6585, 65j50
+
+<P>
+18F: 6620, 6622, 6627, 6680, 66j50, 66j55, 66j60, 66j65
+
+<P>
+18F: 6720, 6722, 67j50, 67j60
+
+<P>
+18F: 8520, 8527, 8585, 85j50
+
+<P>
+18F: 8620, 8622, 8627, 8680, 86j50, 86j55, 86j60, 86j65
+
+<P>
+18F: 8720, 8722, 87j50, 87j60
+
+<P>
+18F: 96j60, 96j65, 97j60
+
+<P>
+An up-to-date list of supported devices is also available
+via '<TT>sdcc -mpic16 -plist</TT>'.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html2513"
+  HREF="node120.html">4.6.1 Global Options</A>
+<LI><A NAME="tex2html2514"
+  HREF="node121.html">4.6.2 Port Specific Options</A>
+<UL>
+<LI><A NAME="tex2html2515"
+  HREF="node121.html#SECTION00562100000000000000">4.6.2.1 Code Generation Options</A>
+<LI><A NAME="tex2html2516"
+  HREF="node121.html#SECTION00562200000000000000">4.6.2.2 Optimization Options</A>
+<LI><A NAME="tex2html2517"
+  HREF="node121.html#SECTION00562300000000000000">4.6.2.3 Assembling Options</A>
+<LI><A NAME="tex2html2518"
+  HREF="node121.html#SECTION00562400000000000000">4.6.2.4 Linking Options</A>
+<LI><A NAME="tex2html2519"
+  HREF="node121.html#SECTION00562500000000000000">4.6.2.5 Debugging Options</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html2520"
+  HREF="node122.html">4.6.3 Environment Variables</A>
+<LI><A NAME="tex2html2521"
+  HREF="node123.html">4.6.4 Preprocessor Macros</A>
+<LI><A NAME="tex2html2522"
+  HREF="node124.html">4.6.5 Directories</A>
+<LI><A NAME="tex2html2523"
+  HREF="node125.html">4.6.6 Pragmas</A>
+<LI><A NAME="tex2html2524"
+  HREF="node126.html">4.6.7 Header Files and Libraries</A>
+<LI><A NAME="tex2html2525"
+  HREF="node127.html">4.6.8 Header Files</A>
+<LI><A NAME="tex2html2526"
+  HREF="node128.html">4.6.9 Libraries</A>
+<UL>
+<LI><A NAME="tex2html2527"
+  HREF="node128.html#SECTION00569100000000000000">Building the libraries</A>
+<LI><A NAME="tex2html2528"
+  HREF="node128.html#SECTION00569200000000000000">Output of float values via printf()</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html2529"
+  HREF="node129.html">4.6.10 Adding New Devices to the Port</A>
+<LI><A NAME="tex2html2530"
+  HREF="node130.html">4.6.11 Memory Models</A>
+<LI><A NAME="tex2html2531"
+  HREF="node131.html">4.6.12 Stack</A>
+<LI><A NAME="tex2html2532"
+  HREF="node132.html">4.6.13 Functions</A>
+<LI><A NAME="tex2html2533"
+  HREF="node133.html">4.6.14 Function return values</A>
+<LI><A NAME="tex2html2534"
+  HREF="node134.html">4.6.15 Interrupts</A>
+<LI><A NAME="tex2html2535"
+  HREF="node135.html">4.6.16 Generic Pointers</A>
+<LI><A NAME="tex2html2536"
+  HREF="node136.html">4.6.17 PIC16 C Libraries</A>
+<UL>
+<LI><A NAME="tex2html2537"
+  HREF="node136.html#SECTION005617100000000000000">4.6.17.1 Standard I/O Streams</A>
+<LI><A NAME="tex2html2538"
+  HREF="node136.html#SECTION005617200000000000000">4.6.17.2 Printing functions</A>
+<LI><A NAME="tex2html2539"
+  HREF="node136.html#SECTION005617300000000000000">4.6.17.3 Signals</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html2540"
+  HREF="node137.html">4.6.18 PIC16 Port - Tips</A>
+<UL>
+<LI><A NAME="tex2html2541"
+  HREF="node137.html#SECTION005618100000000000000">4.6.18.1 Stack size</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html2542"
+  HREF="node138.html">4.6.19 Known Bugs</A>
+<UL>
+<LI><A NAME="tex2html2543"
+  HREF="node138.html#SECTION005619100000000000000">4.6.19.1 Extended Instruction Set</A>
+<LI><A NAME="tex2html2544"
+  HREF="node138.html#SECTION005619200000000000000">4.6.19.2 Regression Tests</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2511"
+  HREF="node120.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2505"
+  HREF="node102.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2501"
+  HREF="node118.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2507"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2509"
+  HREF="node191.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2512"
+  HREF="node120.html">4.6.1 Global Options</A>
+<B> Up:</B> <A NAME="tex2html2506"
+  HREF="node102.html">4. Notes on supported</A>
+<B> Previous:</B> <A NAME="tex2html2502"
+  HREF="node118.html">4.5.8 Known Bugs</A>
+ &nbsp; <B>  <A NAME="tex2html2508"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2510"
+  HREF="node191.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+
+2010-10-31
+</ADDRESS>
+</BODY>
+</HTML>
